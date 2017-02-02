@@ -1,3 +1,5 @@
+package org.usfirst.frc.falcons6443.smashboard;
+
 import java.awt.FlowLayout;
 
 import javax.swing.JButton;
