@@ -1,0 +1,24 @@
+<project name="smashboard" basedir="." default="dist">
+    <property name="srcdir" location="src/main/java"/>
+    <property name="builddir" location="build/"/>
+    <property name="distdir" location="dist/"/>
+
+    <target name="init">
+        <tstamp/>
+    </target>
+
+    <target name="build">
+        <mkdir dir="${builddir}"/>
+        <javac srcdir="${srcdir}" destdir="${builddir}" debug="true"/>
+    </target>
+
+    <target name="dist" depends="build">
+        <mkdir dir="${distdir}"/>
+        <jar basedir="${builddir}" destfile="${distdir}/smashboard.jar" includes="**/*"/>
+    </target>
+
+    <target name="clean">
+        <delete dir="${builddir}"/>
+        <delete dir="${distdir}"/>
+    </target>
+</project>
