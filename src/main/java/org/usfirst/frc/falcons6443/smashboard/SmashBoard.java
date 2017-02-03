@@ -1,6 +1,7 @@
 package org.usfirst.frc.falcons6443.smashboard;
 
 import javax.swing.*;
+import java.util.ArrayList;
 
 /**
  * @author Shivashriganesh Mahato
@@ -11,7 +12,7 @@ public class SmashBoard {
 
     private String title;
     private int width, height;
-    private Data[] components;
+    private ArrayList<Data> components;
     private Dashboard frame;
 
     private SmashBoard() {
@@ -19,6 +20,7 @@ public class SmashBoard {
         width = 640;
         height = 480;
         frame = new Dashboard(title);
+        components = new ArrayList<>();
     }
 
     public void init(String name, int width, int height) {
@@ -28,11 +30,34 @@ public class SmashBoard {
         this.frame.setTitle(name);
     }
 
-    public void run() {
+    public void putData(String name, int value) {
+        boolean doesAlreadyExist = false;
+
         for (Data data : components) {
-            frame.getPanel().add(data.getWidget());
+            if (data.getName().equals(name)) {
+                doesAlreadyExist = true;
+                break;
+            }
         }
-        frame.update();
+
+        if (doesAlreadyExist) {
+            getData(name).setWidgetVal(value);
+        } else {
+            Data newData = new Data(name, value);
+            components.add(newData);
+            frame.getPanel().add(newData.getWidget());
+        }
+    }
+
+    private Data getData(String name) {
+        for (Data data : components)
+            if (data.getName().equals(name))
+                return data;
+        return null;
+    }
+
+    public void run() {
+        frame.display(width, height);
 
 //        Timer timer = new Timer(1, e -> {
 //            for (Data data 640, 480);
@@ -73,7 +98,7 @@ public class SmashBoard {
     }
 
 	public static void main(String args[]) {
-        getInstance().init("Smashboard", 300, 300);
+        getInstance().init("Smashboard", 640, 480);
         getInstance().run();
 	}
 	

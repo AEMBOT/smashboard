@@ -9,10 +9,12 @@ public class Data {
 
     private String name;
     private JProgressBar widget;
+    private int value;
 
-    public Data(String name) {
+    public Data(String name, int value) {
         this.name = name;
         this.widget = new JProgressBar();
+        this.widget.setValue(0);
     }
 
     public String getName() {
