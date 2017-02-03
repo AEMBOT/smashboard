@@ -10,11 +10,13 @@ public class Data {
     private String name;
     private JProgressBar widget;
     private int value;
+    private boolean isAddedToDB;
 
     public Data(String name, int value) {
         this.name = name;
         this.widget = new JProgressBar();
         this.widget.setValue(0);
+        this.isAddedToDB = false;
     }
 
     public String getName() {
@@ -36,4 +38,13 @@ public class Data {
     public void setWidgetVal(int val) {
         this.widget.setValue(val);
     }
+
+    public void setAddedToDB() {
+        this.isAddedToDB = true;
+    }
+
+    public boolean getIsAddedToDB() {
+        return isAddedToDB;
+    }
+
 }

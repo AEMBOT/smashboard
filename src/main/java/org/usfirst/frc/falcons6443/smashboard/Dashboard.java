@@ -2,6 +2,7 @@ package org.usfirst.frc.falcons6443.smashboard;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 /**
  * @author Shivashriganesh Mahato
@@ -21,8 +22,17 @@ public class Dashboard extends JFrame {
         return panel;
     }
 
-    public void update() {
+    public void init() {
         this.add(panel);
+    }
+
+    public void update(ArrayList<Data> components) {
+        for (Data data : components) {
+            if (!data.getIsAddedToDB()) {
+                panel.add(data.getWidget());
+                data.setAddedToDB();
+            }
+        }
     }
 
     public void display(int width, int height, int operation) {

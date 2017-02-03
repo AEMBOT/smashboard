@@ -1,6 +1,5 @@
 package org.usfirst.frc.falcons6443.smashboard;
 
-import javax.swing.*;
 import java.util.ArrayList;
 
 /**
@@ -28,6 +27,7 @@ public class SmashBoard {
         this.width = width;
         this.height = height;
         this.frame.setTitle(name);
+        this.frame.init();
     }
 
     public void putData(String name, int value) {
@@ -41,11 +41,10 @@ public class SmashBoard {
         }
 
         if (doesAlreadyExist) {
-            getData(name).setWidgetVal(value);
+            if (getData(name) != null)
+                getData(name).setWidgetVal(value);
         } else {
-            Data newData = new Data(name, value);
-            components.add(newData);
-            frame.getPanel().add(newData.getWidget());
+            components.add(new Data(name, value));
         }
     }
 
@@ -57,14 +56,13 @@ public class SmashBoard {
     }
 
     public void run() {
+        frame.update(components);
         frame.display(width, height);
-
-//        Timer timer = new Timer(1, e -> {
-//            for (Data data 640, 480);
-//        });
-//        timer.start();
     }
 
+    public void runLoop() {
+        frame.update(components);
+    }
 
     public String getTitle() {
         return title;
@@ -96,10 +94,5 @@ public class SmashBoard {
         }
         return instance;
     }
-
-	public static void main(String args[]) {
-        getInstance().init("Smashboard", 640, 480);
-        getInstance().run();
-	}
 	
 }
