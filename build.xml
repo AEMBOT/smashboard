@@ -2,19 +2,37 @@
     <property name="srcdir" location="src/main/java"/>
     <property name="builddir" location="build/"/>
     <property name="distdir" location="dist/"/>
-
+    <path id="classpath">
+	    <fileset dir="~/wpilib/java/current/lib">
+	        <include name="*.jar"/>
+	    </fileset>
+    </path>
     <target name="init">
         <tstamp/>
     </target>
 
     <target name="build">
         <mkdir dir="${builddir}"/>
-        <javac srcdir="${srcdir}" destdir="${builddir}" debug="true"/>
+	<javac srcdir="${srcdir}" destdir="${builddir}" debug="true">
+            <classpath refid="classpath"/>
+   	</javac>
+	<copy todir="${build}">
+	    <fileset dir="${resources}">
+		<include name="**/*"/>
+		<exclude name="lib/"/>
+	    </fileset>
+	</copy>
     </target>
 
     <target name="dist" depends="build">
         <mkdir dir="${distdir}"/>
-        <jar basedir="${builddir}" destfile="${distdir}/smashboard.jar" includes="**/*"/>
+	<jar basedir="${builddir}" destfile="${distdir}/smashboard.jar" includes="**/*">
+	    <manifest>
+		<attribute name="Main-Class" value="org.usfirst.frc.team6443.smashboard.Main"/>
+		<!--WPILIB PATH BELOW--!>
+		<attribute name="Class-Path" value="~/wpilib/java/current/lib/"/>
+	    </manifest>
+	</jar>
     </target>
 
     <target name="clean">
