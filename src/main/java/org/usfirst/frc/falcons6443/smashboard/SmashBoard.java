@@ -3,6 +3,7 @@ package org.usfirst.frc.falcons6443.smashboard;
 import java.util.ArrayList;
 
 //TODO comment your stuff please
+//TODO no
 /**
  * @author Shivashriganesh Mahato
  */
@@ -15,6 +16,8 @@ public class SmashBoard {
     private ArrayList<Data> components;
     private Dashboard frame;
 
+    private NetworkTable table;
+
     private SmashBoard() {
         title = "Undefined";
         width = 640;
@@ -23,12 +26,15 @@ public class SmashBoard {
         components = new ArrayList<>();
     }
 
-    public void init(String name, int width, int height) {
+    public void init(String name, int width, int height, String tableName, String ipAddress) {
         this.title = name;
         this.width = width;
         this.height = height;
         this.frame.setTitle(name);
         this.frame.init();
+        NetworkTable.setClientMode();
+        NetworkTable.setIPAddress(ipAddress);
+        this.table = NetworkTable.getTable(tableName);
     }
 
     public void putData(String name, int value) {
@@ -62,7 +68,10 @@ public class SmashBoard {
     }
 
     public void runLoop() {
-        frame.update(components);
+        while (true) {
+            putData("Meme", table.getString("Meme", "69"));
+            frame.update(components);
+        }
     }
 
     public String getTitle() {
