@@ -1,6 +1,8 @@
 package org.usfirst.frc.falcons6443.smashboard;
 
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 //TODO comment your stuff please
 //TODO no
@@ -69,6 +71,12 @@ public class SmashBoard {
 
     public void runLoop() {
         while (true) {
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                Logger.getLogger(NetworkTablesDesktopClient.class.getName())
+                        .log(Level.SEVERE, null, e);
+            }
             putData("Meme", table.getString("Meme", "69"));
             frame.update(components);
         }
