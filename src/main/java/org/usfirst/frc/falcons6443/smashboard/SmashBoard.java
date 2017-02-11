@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import edu.wpi.first.wpilibj.networktables.NetworkTable;
+
 //TODO comment your stuff please
 //TODO no
 /**
@@ -74,10 +76,9 @@ public class SmashBoard {
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
-                Logger.getLogger(NetworkTablesDesktopClient.class.getName())
-                        .log(Level.SEVERE, null, e);
+                System.out.println(e);
             }
-            putData("Meme", table.getString("Meme", "69"));
+            putData("Meme", (int) table.getNumber("Meme", 69));
             frame.update(components);
         }
     }
