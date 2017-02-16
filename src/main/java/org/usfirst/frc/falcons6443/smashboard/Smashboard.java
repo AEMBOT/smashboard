@@ -13,12 +13,12 @@ public class Smashboard extends JFrame {
 
     public Smashboard() {
         NetworkTable.setClientMode();
-        NetworkTable.setIPAddress("10.64.43.27");
+        NetworkTable.setIPAddress("10.64.43.62");
         NetworkTable table = NetworkTable.getTable("smashboard");
 
         JPanel panel = new JPanel();
-        JLabel left = new JLabel("");
-        JLabel right = new JLabel("");
+        JProgressBar left = new JProgressBar();
+        JProgressBar right = new JProgressBar();
         panel.add(left);
         panel.add(right);
         add(panel);
@@ -42,8 +42,8 @@ public class Smashboard extends JFrame {
             leftVal = table.getNumber("right", 0.0);
             rightVal = table.getNumber("left", 0.0);
 
-            left.setText(String.valueOf(leftVal));
-            right.setText(String.valueOf(rightVal));
+            left.setValue((int) leftVal);
+            right.setValue((int) rightVal);
         }
     }
 
