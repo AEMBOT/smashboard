@@ -3,6 +3,7 @@ package org.usfirst.frc.falcons6443.smashboard;
 import edu.wpi.first.wpilibj.networktables.NetworkTable;
 
 import javax.swing.*;
+import java.awt.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -16,15 +17,14 @@ public class Smashboard extends JFrame {
         NetworkTable.setIPAddress("10.64.43.62");
         NetworkTable table = NetworkTable.getTable("smashboard");
 
-        JPanel panel = new JPanel();
-        JProgressBar left = new JProgressBar();
-        JProgressBar right = new JProgressBar();
-        panel.add(left);
-        panel.add(right);
+        Canvas panel = new Canvas();
+        panel.setBackground(Color.BLACK);
         add(panel);
 
         setTitle("Smashboard");
-        setSize(300, 200);
+        getContentPane().setBackground(Color.black);
+        setResizable(false);
+        setSize(853, 640);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
@@ -41,9 +41,6 @@ public class Smashboard extends JFrame {
 
             leftVal = table.getNumber("right", 0.0);
             rightVal = table.getNumber("left", 0.0);
-
-            left.setValue((int) leftVal);
-            right.setValue((int) rightVal);
         }
     }
 
