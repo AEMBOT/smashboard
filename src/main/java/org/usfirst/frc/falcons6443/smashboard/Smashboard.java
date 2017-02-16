@@ -41,6 +41,10 @@ public class Smashboard extends JFrame {
 
             leftVal = table.getNumber("right", 0.0);
             rightVal = table.getNumber("left", 0.0);
+
+            panel.setLeftVal((int) leftVal);
+
+            panel.repaint();
         }
     }
 

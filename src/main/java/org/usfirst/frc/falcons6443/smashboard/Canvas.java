@@ -13,6 +13,7 @@ import java.io.IOException;
 public class Canvas extends JPanel {
 
     private BufferedImage banner, barLeft, barLeftSide;
+    private int leftVal;
 
     public Canvas() {
         try {
@@ -24,11 +25,15 @@ public class Canvas extends JPanel {
         }
     }
 
+    public void setLeftVal(int leftVal) {
+        this.leftVal = leftVal;
+    }
+
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.drawImage(banner, 0, 0, this);
-        g.drawImage(barLeft, 0, 640, 70, -70, this);
+        g.drawImage(barLeft, 0, 640, 70, -leftVal, this);
         g.drawImage(barLeftSide, 0, 140, this);
     }
 }
