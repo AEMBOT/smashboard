@@ -17,9 +17,9 @@ public class Canvas extends JPanel {
 
     public Canvas() {
         try {
-            banner = ImageIO.read(new File("src/main/resources/BannerFinal.png"));
-            barLeft = ImageIO.read(new File("src/main/resources/Bar.png"));
-            barLeftSide = ImageIO.read(new File("src/main/resources/BarSide.png"));
+            banner = ImageIO.read(this.getClass().getResource("/img/BannerFinal.png"));
+            barLeft = ImageIO.read(this.getClass().getResource("/img/Bar.png"));
+            barLeftSide = ImageIO.read(this.getClass().getResource("/img/BarSide.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
