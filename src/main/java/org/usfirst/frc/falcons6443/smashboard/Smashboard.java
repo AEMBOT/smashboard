@@ -18,15 +18,22 @@ public class Smashboard {
 
     private void init() {
         smashboard.addData("leftVal",
-                new Widget("/img/BarSide.png", 0, 140, 75, 500));
+                new Widget("/img/SpeedBar.png", 0, 140, 75, 500));
         smashboard.addData("rightVal",
-                new Widget("/img/BarSide.png", 853, 140, -75, 500));
+                new Widget("/img/SpeedBar.png", 853, 140, -75, 500));
         smashboard.init();
         smashboard.run();
     }
 
     private void loop() {
         while (true) {
+            // TODO Remove sleep
+            try {
+                Thread.sleep(10);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
             smashboard.update();
         }
     }

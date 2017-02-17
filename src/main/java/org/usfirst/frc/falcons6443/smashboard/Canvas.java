@@ -1,5 +1,6 @@
 package org.usfirst.frc.falcons6443.smashboard;
 
+import org.usfirst.frc.falcons6443.smashboard.utilities.StaticImage;
 import org.usfirst.frc.falcons6443.smashboard.widgets.Widget;
 
 import javax.swing.*;
@@ -12,9 +13,11 @@ import java.util.ArrayList;
 public class Canvas extends JPanel {
 
     private ArrayList<Data> datas;
+    private ArrayList<StaticImage> staticImages;
 
     public Canvas() {
         datas = new ArrayList<>();
+        staticImages = new ArrayList<>();
     }
 
     public Data getData(String key) {
@@ -36,9 +39,15 @@ public class Canvas extends JPanel {
         datas.add(data);
     }
 
+    public void addSImage(StaticImage image) {
+        staticImages.add(image);
+    }
+
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
+        for (StaticImage sImage : staticImages)
+            sImage.
         for (Data data : datas)
             data.getWidget().paint(g, this);
     }
