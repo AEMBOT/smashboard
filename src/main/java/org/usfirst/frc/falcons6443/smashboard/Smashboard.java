@@ -4,8 +4,6 @@ import edu.wpi.first.wpilibj.networktables.NetworkTable;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * @author Shivashriganesh Mahato
@@ -33,12 +31,6 @@ public class Smashboard extends JFrame {
         double leftVal, rightVal;
 
         while (true) {
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException ex) {
-                Logger.getLogger(Smashboard.class.getName()).log(Level.SEVERE, null, ex);
-            }
-
             leftVal = table.getNumber("right", 0.0);
             rightVal = table.getNumber("left", 0.0);
 
