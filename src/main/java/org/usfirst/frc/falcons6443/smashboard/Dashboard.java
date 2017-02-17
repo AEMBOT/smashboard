@@ -11,14 +11,14 @@ import java.awt.*;
  */
 public class Dashboard extends JFrame {
 
-    private String _title;
+    private String title;
     private Color bgColor;
     private boolean isResizable;
     private int width, height;
     private Canvas canvas;
     private NetworkTable nTable;
 
-    public Dashboard(String ipAddress, String nTableKey, String _title, Color bgColor, boolean isResizable, int width,
+    public Dashboard(String ipAddress, String nTableKey, String title, Color bgColor, boolean isResizable, int width,
                      int height) {
         NetworkTable.setClientMode();
         NetworkTable.setIPAddress(ipAddress);
@@ -26,7 +26,7 @@ public class Dashboard extends JFrame {
 
         canvas = new Canvas();
 
-        this._title = _title;
+        this.title = title;
         this.bgColor = bgColor;
         this.isResizable = isResizable;
         this.width = width;
@@ -37,7 +37,7 @@ public class Dashboard extends JFrame {
         canvas.setBackground(bgColor);
         add(canvas);
 
-        setTitle(_title);
+        setTitle(title);
         getContentPane().setBackground(bgColor);
         setResizable(isResizable);
         setSize(width, height);
@@ -53,24 +53,40 @@ public class Dashboard extends JFrame {
         canvas.repaint();
     }
 
-    public void addData(Data data) {
-        canvas.addData(data);
+    public void addData(String key, Widget widget) {
+        if (!doesDataExist(key))
+            canvas.addData(new Data(key, widget));
+        else
+            System.out.println("Error: Data with key " + key + " already exists.");
     }
 
-    public<T extends Widget> void addData(String key, Class<T> widgetType) {
-        canvas.addData(new Data(key, widgetType));
+    public boolean doesDataExist(String key) {
+        for (Data data : canvas.getDatas())
+            if (data.getKey().equals(key))
+                return true;
+        return false;
+    }
+
+    public Data getData(String key) {
+        return canvas.getData(key);
+    }
+
+    public Widget getWidget(String key) {
+        return canvas.getWidget(key);
     }
 
     public Canvas getCanvas() {
         return canvas;
     }
 
-    public String get_title() {
-        return _title;
+    @Override
+    public String getTitle() {
+        return title;
     }
 
-    public void set_title(String title) {
-        this._title = title;
+    @Override
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public Color getBgColor() {

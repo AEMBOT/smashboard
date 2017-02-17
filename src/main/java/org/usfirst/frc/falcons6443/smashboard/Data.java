@@ -10,13 +10,9 @@ public class Data {
     private String key;
     private Widget widget;
 
-    public<T extends Widget> Data(String key, Class<T> widgetClass) {
+    public Data(String key, Widget widget) {
         this.key = key;
-        try {
-            widget = widgetClass.newInstance();
-        } catch (InstantiationException | IllegalAccessException e) {
-            e.printStackTrace();
-        }
+        this.widget = widget;
     }
 
     public String getKey() {
