@@ -1,6 +1,6 @@
 package org.usfirst.frc.falcons6443.smashboard.widgets;
 
-import org.usfirst.frc.falcons6443.smashboard.Canvas;
+import edu.wpi.first.wpilibj.networktables.NetworkTable;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -10,17 +10,19 @@ import java.io.IOException;
 /**
  * @author Shivashriganesh Mahato
  */
-public class Widget {
+public abstract class Widget {
 
     protected Image sprite;
     protected int x, y, width, height;
+    protected NetworkTable nTable;
 
-    public Widget(String spritePath, int x, int y, int width, int height) {
+    public Widget(NetworkTable nTable, String spritePath, int x, int y, int width, int height) {
         try {
             sprite = ImageIO.read(this.getClass().getResource(spritePath));
         } catch (IOException e) {
             e.printStackTrace();
         }
+        this.nTable = nTable;
         this.x = x;
         this.y = y;
         this.width = width;
@@ -50,4 +52,7 @@ public class Widget {
     public void paint(Graphics g, ImageObserver observer) {
         g.drawImage(sprite, x, y, width, height, observer);
     }
+
+    public abstract void update(String key);
+
 }
