@@ -7,12 +7,16 @@ import java.awt.*;
  */
 public class ColorUtils {
 
-    public static Color lerpColors(Color initClr, Color termClr, float proportion) {
+    public static int lerp(float v0, float v1, float t) {
+        return (int) ((1 - t) * v0 + t * v1);
+    }
+
+    public static Color lerpColor(Color initClr, Color termClr, float val) {
         return new Color(
-                constrain((initClr.getRed() + (termClr.getRed() - initClr.getRed()) * proportion), 0.0f, 255.0f),
-                constrain((initClr.getGreen() + (termClr.getGreen() - initClr.getGreen()) * proportion), 0.0f, 255.0f),
-                constrain((initClr.getBlue() + (termClr.getBlue() - initClr.getBlue()) * proportion), 0.0f, 255.0f),
-                constrain((initClr.getAlpha() + (termClr.getAlpha() - initClr.getAlpha()) * proportion), 0.0f, 255.0f)
+                constrain(lerp(initClr.getRed(), termClr.getRed(), val), 0, 255),
+                constrain(lerp(initClr.getGreen(), termClr.getGreen(), val), 0, 255),
+                constrain(lerp(initClr.getBlue(), termClr.getBlue(), val), 0, 255),
+                constrain(lerp(initClr.getAlpha(), termClr.getAlpha(), val), 0, 255)
         );
     }
 

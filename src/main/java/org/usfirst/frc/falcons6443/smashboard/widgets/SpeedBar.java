@@ -27,7 +27,7 @@ public class SpeedBar extends Widget {
 
     @Override
     public void paint(Graphics g, ImageObserver observer) {
-        g.setColor(Color.WHITE);
+        g.setColor(lerpedClr);
         if (!isFlipped)
             g.fillRect(x - 1, (640 - barHeight), width, barHeight);
         else
@@ -38,7 +38,7 @@ public class SpeedBar extends Widget {
     @Override
     public void update(String key) {
         barHeight = (int) ((nTable.getNumber(key, 0.0) / 100) * height);
-//        lerpedClr = ColorUtils.lerpColors(initClr, terminalClr, height / 640.0f);
+        lerpedClr = ColorUtils.lerpColor(Color.RED, Color.GREEN, (float) (nTable.getNumber(key, 0.0)));
     }
 
 }
