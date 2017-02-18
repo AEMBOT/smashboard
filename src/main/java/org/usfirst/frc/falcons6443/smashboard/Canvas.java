@@ -51,4 +51,5 @@ public class Canvas extends JPanel {
         for (Data data : datas)
             data.getWidget().paint(g, this);
     }
+
 }

@@ -22,4 +22,9 @@ public class Data {
     public Widget getWidget() {
         return widget;
     }
+
+    public void update() {
+        widget.update(key);
+    }
+
 }

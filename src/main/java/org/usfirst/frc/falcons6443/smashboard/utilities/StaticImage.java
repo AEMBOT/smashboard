@@ -19,13 +19,7 @@ public class StaticImage {
         this.y = y;
         this.width = width;
         this.height = height;
-        this.path = path;
-
-        try {
-            sprite = ImageIO.read(this.getClass().getResource(path));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        setPath(path);
     }
 
     public int getX() {
@@ -66,6 +60,12 @@ public class StaticImage {
 
     public void setPath(String path) {
         this.path = path;
+
+        try {
+            sprite = ImageIO.read(this.getClass().getResource(path));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public Image getSprite() {

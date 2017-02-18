@@ -52,6 +52,12 @@ public class Dashboard extends JFrame {
 
     public void update() {
         canvas.repaint();
+        for (Data data : canvas.getDatas())
+            data.update();
+    }
+
+    public void addSImage(String path, int x, int y, int width, int height) {
+        canvas.addSImage(new StaticImage(x, y, width, height, path));
     }
 
     public void addSImage(String path, int x, int y, int width, int height) {
@@ -129,4 +135,9 @@ public class Dashboard extends JFrame {
     public void setHeight(int height) {
         this.height = height;
     }
+
+    public NetworkTable getNTable() {
+        return nTable;
+    }
+
 }
