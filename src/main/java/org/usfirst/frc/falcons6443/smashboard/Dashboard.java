@@ -60,10 +60,6 @@ public class Dashboard extends JFrame {
         canvas.addSImage(new StaticImage(x, y, width, height, path));
     }
 
-    public void addSImage(String path, int x, int y, int width, int height) {
-        canvas.addSImage(new StaticImage(x, y, width, height, path));
-    }
-
     public void addData(String key, Widget widget) {
         if (!doesDataExist(key))
             canvas.addData(new Data(key, widget));

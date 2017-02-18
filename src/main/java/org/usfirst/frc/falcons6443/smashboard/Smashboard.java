@@ -18,10 +18,10 @@ public class Smashboard {
 
     private void init() {
         smashboard.addSImage("/img/Banner.png", 0, 0, 853, 100);
-        smashboard.addData("leftVal",
+        smashboard.addData("left",
                 new SpeedBar(smashboard.getNTable(), "/img/SpeedBar.png", 0, 140, 75,
                         500, false, Color.RED, Color.GREEN));
-        smashboard.addData("rightVal",
+        smashboard.addData("right",
                 new SpeedBar(smashboard.getNTable(), "/img/SpeedBar.png", 853, 140, -75,
                         500, true, Color.RED, Color.GREEN));
         smashboard.init();
