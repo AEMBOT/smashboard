@@ -38,7 +38,7 @@ public class SpeedBar extends Widget {
     @Override
     public void update(String key) {
         barHeight = (int) ((nTable.getNumber(key, 0.0) / 100) * height);
-        lerpedClr = ColorUtils.lerpColor(Color.RED, Color.GREEN, (float) (nTable.getNumber(key, 0.0)));
+        lerpedClr = ColorUtils.lerpColor(initClr, terminalClr, (float) ((nTable.getNumber(key, 0.0) / 100)));
     }
 
 }
