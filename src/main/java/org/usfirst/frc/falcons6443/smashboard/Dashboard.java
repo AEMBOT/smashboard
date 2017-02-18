@@ -1,6 +1,7 @@
 package org.usfirst.frc.falcons6443.smashboard;
 
 import edu.wpi.first.wpilibj.networktables.NetworkTable;
+import org.usfirst.frc.falcons6443.smashboard.utilities.StaticImage;
 import org.usfirst.frc.falcons6443.smashboard.widgets.Widget;
 
 import javax.swing.*;
@@ -42,7 +43,7 @@ public class Dashboard extends JFrame {
         setResizable(isResizable);
         setSize(width, height);
         setLocationRelativeTo(null);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
 
     public void run() {
@@ -51,6 +52,10 @@ public class Dashboard extends JFrame {
 
     public void update() {
         canvas.repaint();
+    }
+
+    public void addSImage(String path, int x, int y, int width, int height) {
+        canvas.addSImage(new StaticImage(x, y, width, height, path));
     }
 
     public void addData(String key, Widget widget) {

@@ -17,6 +17,7 @@ public class Smashboard {
     }
 
     private void init() {
+        smashboard.addSImage("/img/Banner.png", 0, 0, 853, 100);
         smashboard.addData("leftVal",
                 new Widget("/img/SpeedBar.png", 0, 140, 75, 500));
         smashboard.addData("rightVal",

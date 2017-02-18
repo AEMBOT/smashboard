@@ -1,6 +1,9 @@
 package org.usfirst.frc.falcons6443.smashboard.utilities;
 
+import javax.imageio.ImageIO;
 import java.awt.*;
+import java.awt.image.ImageObserver;
+import java.io.IOException;
 
 /**
  * @author Shivashriganesh Mahato
@@ -9,6 +12,7 @@ public class StaticImage {
 
     private int x, y, width, height;
     private String path;
+    private Image sprite;
 
     public StaticImage(int x, int y, int width, int height, String path) {
         this.x = x;
@@ -16,6 +20,12 @@ public class StaticImage {
         this.width = width;
         this.height = height;
         this.path = path;
+
+        try {
+            sprite = ImageIO.read(this.getClass().getResource(path));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public int getX() {
@@ -58,8 +68,12 @@ public class StaticImage {
         this.path = path;
     }
 
-    public void paint(Graphics g) {
-        g.drawImage()
+    public Image getSprite() {
+        return sprite;
+    }
+
+    public void paint(Graphics g, ImageObserver observer) {
+        g.drawImage(sprite, x, y, width, height, observer);
     }
 
 }

@@ -47,7 +47,7 @@ public class Canvas extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         for (StaticImage sImage : staticImages)
-            sImage.
+            sImage.paint(g, this);
         for (Data data : datas)
             data.getWidget().paint(g, this);
     }
