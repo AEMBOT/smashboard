@@ -24,13 +24,15 @@ public class Smashboard {
     }
 
     private void init() {
-        smashboard.addSImage("/img/Banner.png", 0, 0, Width, 100);
-        smashboard.addData("left",
-                new SpeedBar(smashboard.getNTable(), "/img/SpeedBar.png", 0, 140, 75,
-                        500, false, TriggerInitClr, TriggerTermClr, InterpDegree));
-        smashboard.addData("right",
-                new SpeedBar(smashboard.getNTable(), "/img/SpeedBar.png", Width, 140, -75,
-                        500, true, TriggerInitClr, TriggerTermClr, InterpDegree));
+        smashboard.addSImage("/img/Banner.png", 0, 0, Width, 153);
+        smashboard.addSImage("/img/SpeedBarLeftScale.png", 0, 174, 177, 466);
+        smashboard.addSImage("/img/SpeedBarRightScale.png", Width - 177, 174, 177, 466);
+        smashboard.addData("leftTriggerVal",
+                new SpeedBar(smashboard.getNTable(), "/img/SpeedBar.png", 44, 205, 133,
+                        435, false, TriggerInitClr, TriggerTermClr, InterpDegree));
+        smashboard.addData("rightTriggerVal",
+                new SpeedBar(smashboard.getNTable(), "/img/SpeedBar.png", Width - 44, 205, -133,
+                        435, true, TriggerInitClr, TriggerTermClr, InterpDegree));
         smashboard.init();
         smashboard.run();
     }

@@ -1,7 +1,6 @@
 package org.usfirst.frc.falcons6443.smashboard.widgets;
 
 import edu.wpi.first.wpilibj.networktables.NetworkTable;
-import org.usfirst.frc.falcons6443.smashboard.Smashboard;
 import org.usfirst.frc.falcons6443.smashboard.utilities.ColorUtils;
 
 import java.awt.*;
@@ -32,9 +31,9 @@ public class SpeedBar extends Widget {
     public void paint(Graphics g, ImageObserver observer) {
         g.setColor(lerpedClr);
         if (!isFlipped)
-            g.fillRect(x - 1, (Smashboard.Height - barHeight), width, barHeight);
+            g.fillRect(x, ((y + height) - barHeight), width, barHeight);
         else
-            g.fillRect(x - (Math.abs(width) - 1), (Smashboard.Height - barHeight), Math.abs(width), barHeight);
+            g.fillRect(x - Math.abs(width), ((y + height) - barHeight), Math.abs(width), barHeight);
         g.drawImage(sprite, x, y, width, height, observer);
     }
 
