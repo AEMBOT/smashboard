@@ -32,7 +32,7 @@ public class SpeedBar extends Widget {
             g.fillRect(x - 1, (640 - barHeight), width, barHeight);
         else
             g.fillRect(x - (Math.abs(width) - 1), (640 - barHeight), Math.abs(width), barHeight);
-        super.paint(g, observer);
+        g.drawImage(sprite, x, y, width, height, observer);
     }
 
     @Override

@@ -49,9 +49,7 @@ public abstract class Widget {
         return sprite;
     }
 
-    public void paint(Graphics g, ImageObserver observer) {
-        g.drawImage(sprite, x, y, width, height, observer);
-    }
+    public abstract void paint(Graphics g, ImageObserver observer);
 
     public abstract void update(String key);
 

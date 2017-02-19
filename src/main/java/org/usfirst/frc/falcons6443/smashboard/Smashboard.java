@@ -1,6 +1,7 @@
 package org.usfirst.frc.falcons6443.smashboard;
 
-import org.usfirst.frc.falcons6443.smashboard.widgets.SpeedBar;
+import org.usfirst.frc.falcons6443.smashboard.widgets.*;
+import org.usfirst.frc.falcons6443.smashboard.widgets.Label;
 
 import java.awt.*;
 
