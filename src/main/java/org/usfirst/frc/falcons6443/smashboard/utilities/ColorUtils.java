@@ -7,16 +7,16 @@ import java.awt.*;
  */
 public class ColorUtils {
 
-    public static int lerp(float v0, float v1, float t) {
-        return (int) ((1 - t) * v0 + t * v1);
+    public static int interpolate(float v0, float v1, float t, int degree) {
+        return (int) ((1 - t) * v0 + Math.pow(t, 4) * v1);
     }
 
-    public static Color lerpColor(Color initClr, Color termClr, float val) {
+    public static Color colorInterp(Color initClr, Color termClr, float val, int degree) {
         return new Color(
-                constrain(lerp(initClr.getRed(), termClr.getRed(), val), 0, 255),
-                constrain(lerp(initClr.getGreen(), termClr.getGreen(), val), 0, 255),
-                constrain(lerp(initClr.getBlue(), termClr.getBlue(), val), 0, 255),
-                constrain(lerp(initClr.getAlpha(), termClr.getAlpha(), val), 0, 255)
+                constrain(interpolate(initClr.getRed(), termClr.getRed(), val, degree), 0, 255),
+                constrain(interpolate(initClr.getGreen(), termClr.getGreen(), val, degree), 0, 255),
+                constrain(interpolate(initClr.getBlue(), termClr.getBlue(), val, degree), 0, 255),
+                constrain(interpolate(initClr.getAlpha(), termClr.getAlpha(), val, degree), 0, 255)
         );
     }
 

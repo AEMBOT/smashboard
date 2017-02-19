@@ -14,6 +14,8 @@ public class Smashboard {
 
     private final Color TriggerInitClr = new Color(76, 205, 55);
     private final Color TriggerTermClr = new Color(236, 31, 40);
+    private final int InterpDegree = 4;
+
     private Dashboard smashboard;
 
     private Smashboard(String ipAddress, String nTableKey, String title, Color bgColor, boolean isResizable, int width,
@@ -25,10 +27,10 @@ public class Smashboard {
         smashboard.addSImage("/img/Banner.png", 0, 0, Width, 100);
         smashboard.addData("left",
                 new SpeedBar(smashboard.getNTable(), "/img/SpeedBar.png", 0, 140, 75,
-                        500, false, TriggerInitClr, TriggerTermClr));
+                        500, false, TriggerInitClr, TriggerTermClr, InterpDegree));
         smashboard.addData("right",
                 new SpeedBar(smashboard.getNTable(), "/img/SpeedBar.png", Width, 140, -75,
-                        500, true, TriggerInitClr, TriggerTermClr));
+                        500, true, TriggerInitClr, TriggerTermClr, InterpDegree));
         smashboard.init();
         smashboard.run();
     }

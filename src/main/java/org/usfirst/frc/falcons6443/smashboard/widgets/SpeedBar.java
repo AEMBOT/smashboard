@@ -12,18 +12,19 @@ import java.awt.image.ImageObserver;
  */
 public class SpeedBar extends Widget {
 
-    private float xzz = 0.0f;
     private boolean isFlipped;
     private Color initClr, terminalClr, lerpedClr;
     private int barHeight;
+    private int interpDegree;
 
     public SpeedBar(NetworkTable nTable, String barSprite, int x, int y, int width, int height, boolean isFlipped,
-                    Color initClr, Color terminalClr) {
+                    Color initClr, Color terminalClr, int interpDegree) {
         super(nTable, barSprite, x, y, width, height);
         this.isFlipped = isFlipped;
         this.initClr = initClr;
         this.terminalClr = terminalClr;
         this.lerpedClr = initClr;
+        this.interpDegree = interpDegree;
         barHeight = 0;
     }
 
@@ -39,10 +40,9 @@ public class SpeedBar extends Widget {
 
     @Override
     public void update(String key) {
-//        barHeight = (int) ((nTable.getNumber(key, 0.0) / 100) * height);
-        barHeight = (int) ((xzz / 100) * height);
-        xzz = (xzz + 1.0f) % 100.0f;
-        lerpedClr = ColorUtils.lerpColor(initClr, terminalClr, xzz / 100);
+        barHeight = (int) ((nTable.getNumber(key, 0.0) / 100) * height);
+        lerpedClr = ColorUtils.colorInterp(initClr, terminalClr,
+                (float) ((nTable.getNumber(key, 0.0) / 100)), interpDegree);
     }
 
 }
