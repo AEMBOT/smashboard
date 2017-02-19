@@ -1,51 +1,47 @@
 package org.usfirst.frc.falcons6443.smashboard;
 
-import edu.wpi.first.wpilibj.networktables.NetworkTable;
+import org.usfirst.frc.falcons6443.smashboard.widgets.*;
+import org.usfirst.frc.falcons6443.smashboard.widgets.Label;
 
-import javax.swing.*;
 import java.awt.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * @author Shivashriganesh Mahato
  */
-public class Smashboard extends JFrame {
+public class Smashboard {
 
-    public Smashboard() {
-        NetworkTable.setClientMode();
-        NetworkTable.setIPAddress("10.64.43.62");
-        NetworkTable table = NetworkTable.getTable("smashboard");
+    private final Color triggerInitClr = new Color(76, 205, 55);
+    private final Color triggerTermClr = new Color(236, 31, 40);
+    private Dashboard smashboard;
 
-        Canvas panel = new Canvas();
-        panel.setBackground(Color.BLACK);
-        add(panel);
+    private Smashboard(String ipAddress, String nTableKey, String title, Color bgColor, boolean isResizable, int width,
+                       int height) {
+        smashboard = new Dashboard(ipAddress, nTableKey, title, bgColor, isResizable, width, height);
+    }
 
-        setTitle("Smashboard");
-        getContentPane().setBackground(Color.black);
-        setResizable(false);
-        setSize(853, 640);
-        setLocationRelativeTo(null);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+    private void init() {
+        smashboard.addSImage("/img/Banner.png", 0, 0, 853, 100);
+        smashboard.addData("left",
+                new SpeedBar(smashboard.getNTable(), "/img/SpeedBar.png", 0, 140, 75,
+                        500, false, triggerInitClr, triggerTermClr));
+        smashboard.addData("right",
+                new SpeedBar(smashboard.getNTable(), "/img/SpeedBar.png", 853, 140, -75,
+                        500, true, triggerInitClr, triggerTermClr));
+        smashboard.init();
+        smashboard.run();
+    }
 
-        setVisible(true);
-
-        double leftVal, rightVal;
-
+    private void loop() {
         while (true) {
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException ex) {
-                Logger.getLogger(Smashboard.class.getName()).log(Level.SEVERE, null, ex);
-            }
-
-            leftVal = table.getNumber("right", 0.0);
-            rightVal = table.getNumber("left", 0.0);
+            smashboard.update();
         }
     }
 
     public static void main(String[] args) {
-        Smashboard ex = new Smashboard();
+        Smashboard mySmashboard = new Smashboard("10.64.43.62", "smashboard", "Smashboard",
+                Color.BLACK, false, 853, 640);
+        mySmashboard.init();
+        mySmashboard.loop();
     }
  
 }
