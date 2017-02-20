@@ -57,8 +57,6 @@ public class Label extends Widget {
     }
 
     /**
-     * Paint this widget on the canvas
-     *
      * @param g        The Graphics object to draw this widget on
      * @param observer The asynchronous update interface that receives notifications about Image information as the
      *                 Image is constructed.
@@ -72,9 +70,8 @@ public class Label extends Widget {
     }
 
     /**
-     * Update the properties and values of this widget
-     * For Label, value is set to the value read from the network table of the key @param key only if nTable is not
-     * null. If it is null, the value is constant therefore not updated
+     * Value is set to the value read from the network table of the key @param key only if nTable is not null. If it is
+     * null, the value is constant therefore not updated
      *
      * @param key The key of the data that this widget belongs to, and of the record that will be read to find the
      *            updated value

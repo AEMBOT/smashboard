@@ -45,8 +45,6 @@ public class SpeedBar extends Widget {
     }
 
     /**
-     * Paint this widget on the canvas
-     *
      * @param g        The Graphics object to draw this widget on
      * @param observer The asynchronous update interface that receives notifications about Image information as the
      *                 Image is constructed.
@@ -62,8 +60,7 @@ public class SpeedBar extends Widget {
     }
 
     /**
-     * Update the properties and values of this widget
-     * For SpeedBar, the height and color are updated based on the network table readings (the color is interpolated)
+     * The height and color are updated based on the network table readings (the color is interpolated)
      *
      * @param key The key of the data that this widget belongs to, and of the record that will be read to find the
      *            updated value
