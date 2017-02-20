@@ -12,7 +12,7 @@ import java.awt.*;
 public class Smashboard {
 
     // Global constants
-    public static final int Width = 853;
+    public static final int Width = 1024;
     public static final int Height = 640;
 
     private final Color TriggerInitClr = new Color(76, 205, 55);
@@ -53,6 +53,8 @@ public class Smashboard {
         smashboard.addData("rightTriggerVal",
                 new SpeedBar(smashboard.getNTable(), "/img/SpeedBar.png", Width - 44, 205, -133,
                         435, true, TriggerInitClr, TriggerTermClr, InterpDegree));
+        smashboard.addSImage("/img/Field.png", (Width / 2 - 300), (Height / 2 - 50), 600, 257);
+
         // Initialize the smashboard's properties
         smashboard.init();
         // Run the smashboard application
