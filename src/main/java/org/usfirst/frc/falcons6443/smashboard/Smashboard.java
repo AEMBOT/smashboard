@@ -1,6 +1,7 @@
 package org.usfirst.frc.falcons6443.smashboard;
 
-import org.usfirst.frc.falcons6443.smashboard.widgets.SpeedBar;
+import org.usfirst.frc.falcons6443.smashboard.widgets.*;
+import org.usfirst.frc.falcons6443.smashboard.widgets.Label;
 
 import java.awt.*;
 
@@ -53,6 +54,9 @@ public class Smashboard {
         smashboard.addData("rightTriggerVal",
                 new SpeedBar(smashboard.getNTable(), "/img/SpeedBar.png", Width - 44, 205, -133,
                         435, true, TriggerInitClr, TriggerTermClr, InterpDegree));
+        smashboard.addData("Sensor Reading",
+                new Label(smashboard.getNTable(), 400, 400, Color.PINK, null, ""));
+
         // Initialize the smashboard's properties
         smashboard.init();
         // Run the smashboard application

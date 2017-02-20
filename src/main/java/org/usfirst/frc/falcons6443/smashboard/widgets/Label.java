@@ -23,15 +23,13 @@ public class Label extends Widget {
      * @param nTable The network table that the application is talking to; Make null if value should be constant
      * @param x      The label's x coordinate on the application's canvas
      * @param y      The label's y coordinate on the application's canvas
-     * @param width  The label's width on the application's canvas
-     * @param height The label's height on the application's canvas
      * @param color  The color of the label's text
      * @param font   The font of the label's text
      * @param value  The value to display as the text of the label; This will stay constant if nTable is null
      */
-    public Label(NetworkTable nTable, int x, int y, int width, int height, Color color,
+    public Label(NetworkTable nTable, int x, int y, Color color,
                  Font font, String value) {
-        super(nTable, "", x, y, width, height);
+        super(nTable, "", x, y, 0, 0);
         this.color = color;
         this.font = font;
         this.value = value;
