@@ -17,7 +17,7 @@ public class Smashboard {
 
     private final Color TriggerInitClr = new Color(76, 205, 55);
     private final Color TriggerTermClr = new Color(236, 31, 40);
-    private final int InterpDegree = 4;
+    private final int InterpDegree = 2;
 
     // The smashboard application itself
     private Dashboard smashboard;
