@@ -1,7 +1,7 @@
 package org.usfirst.frc.falcons6443.smashboard;
 
-import org.usfirst.frc.falcons6443.smashboard.widgets.Compass;
-import org.usfirst.frc.falcons6443.smashboard.widgets.SpeedBar;
+import org.usfirst.frc.falcons6443.smashboard.widgets.*;
+import org.usfirst.frc.falcons6443.smashboard.widgets.Label;
 
 import java.awt.*;
 
@@ -54,9 +54,13 @@ public class Smashboard {
         smashboard.addData("rightTriggerVal",
                 new SpeedBar(smashboard.getNTable(), "/img/SpeedBar.png", Width - 44, 205, -133,
                         435, true, TriggerInitClr, TriggerTermClr, InterpDegree));
+        smashboard.addSImage("/img/CompassBack.png", (Width / 2 - 78), 200, 156, 156);
         smashboard.addData("robotHeadingVal",
-                new Compass(smashboard.getNTable(), "/img/Compass.png", (Width / 2 - 150), 200,
-                        300, 300, 0));
+                new Compass(smashboard.getNTable(), "/img/CompassNeedle.png", (Width / 2 -  15), 200,
+                        30, 154, 0));
+        smashboard.addData("transmissionLevel",
+                new Label(smashboard.getNTable(), 200, 50, 50, 50, Color.WHITE, null, ""));
+        smashboard.addSImage("/img/CompassMiddle.png", (Width / 2 - 18), 260, 36, 36);
 
         // Initialize the smashboard's properties
         smashboard.init();
