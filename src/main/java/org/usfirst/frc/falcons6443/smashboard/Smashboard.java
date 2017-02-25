@@ -1,5 +1,6 @@
 package org.usfirst.frc.falcons6443.smashboard;
 
+import org.usfirst.frc.falcons6443.smashboard.utilities.StaticImage;
 import org.usfirst.frc.falcons6443.smashboard.widgets.*;
 import org.usfirst.frc.falcons6443.smashboard.widgets.Label;
 
@@ -18,7 +19,7 @@ public class Smashboard {
 
     private final Color TriggerInitClr = new Color(76, 205, 55);
     private final Color TriggerTermClr = new Color(236, 31, 40);
-    private final int InterpDegree = 4;
+    private final int InterpDegree = 2;
 
     // The smashboard application itself
     private Dashboard smashboard;
@@ -56,6 +57,14 @@ public class Smashboard {
                         435, true, TriggerInitClr, TriggerTermClr, InterpDegree));
         smashboard.addData("Sensor Reading",
                 new Label(smashboard.getNTable(), 400, 400, Color.PINK, null, ""));
+        smashboard.addData("robotHeadingVal",
+                new Compass(smashboard.getNTable(), "/img/CompassNeedle.png", (Width / 2 -  15), 200,
+                        30, 154, 0,
+                            new StaticImage((Width / 2 - 78), 200, 156, 156, "/img/CompassBack.png"),
+                            new StaticImage((Width / 2 - 18), 260, 36, 36, "/img/CompassMiddle.png")
+                        ));
+        smashboard.addData("transmissionLevel",
+                new Label(smashboard.getNTable(), 200, 50, 50, 50, Color.WHITE, null, ""));
 
         // Initialize the smashboard's properties
         smashboard.init();
