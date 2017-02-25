@@ -55,6 +55,8 @@ public class Smashboard {
         smashboard.addData("rightTriggerVal",
                 new SpeedBar(smashboard.getNTable(), "/img/SpeedBar.png", Width - 44, 205, -133,
                         435, true, TriggerInitClr, TriggerTermClr, InterpDegree));
+        smashboard.addData("Sensor Reading",
+                new Label(smashboard.getNTable(), 400, 400, Color.PINK, null, ""));
         smashboard.addData("robotHeadingVal",
                 new Compass(smashboard.getNTable(), "/img/CompassNeedle.png", (Width / 2 -  15), 200,
                         30, 154, 0,
