@@ -17,6 +17,7 @@ public class Canvas extends JPanel {
     // The lists of components that will be on this canvas
     private ArrayList<Data> datas;
     private ArrayList<StaticImage> staticImages;
+    private CellRendererPane crp;
 
     /**
      * Construct the Canvas with empty lists of components
@@ -24,6 +25,8 @@ public class Canvas extends JPanel {
     public Canvas() {
         datas = new ArrayList<>();
         staticImages = new ArrayList<>();
+        crp = new CellRendererPane();
+        add(crp);
     }
 
     /**
@@ -88,6 +91,12 @@ public class Canvas extends JPanel {
             sImage.paint(g, this);
         for (Data data : datas)
             data.getWidget().paint(g, this);
+        // Refer to:
+        // http://stackoverflow.com/questions/7774960/swing-html-drawstring
+        // http://stackoverflow.com/questions/10601676/display-a-webpage-inside-a-swing-application
+        // https://dzone.com/articles/web-browser-your-java-swing
+        crp.paintComponent(g, new JLabel("<html><big><u>Hello</u></html>"), this,
+                40, 40, 100, 40);
     }
 
 }
