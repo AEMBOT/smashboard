@@ -64,7 +64,11 @@ public class Smashboard {
                             new StaticImage((Width / 2 - 18), 260, 36, 36, "/img/CompassMiddle.png")
                         ));
         smashboard.addData("transmissionLevel",
-                new Label(smashboard.getNTable(), 200, 50, 50, 50, Color.WHITE, null, ""));
+                new Label(smashboard.getNTable(), 200, 50, Color.WHITE, null, ""));
+
+//        for (String key : smashboard.getNTable().getKeys())
+//            smashboard.add(key,
+//                    new Label(smashboard.getNTable(), ))
 
         // Initialize the smashboard's properties
         smashboard.init();
