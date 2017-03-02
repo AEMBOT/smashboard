@@ -48,12 +48,12 @@ public class Smashboard {
         // Add the data and images needed in the application to the smashboard
         smashboard.addSImage("/img/Banner.png", 0, 0, Width, 153);
         smashboard.addSImage("/img/SpeedBarLeftScale.png", 0, 174, 177, 466);
-        smashboard.addSImage("/img/SpeedBarRightScale.png", Width - 177, 174, 177, 466);
+        smashboard.addSImage("/img/SpeedBarRightScale.png", Width - 182, 174, 177, 466);
         smashboard.addData("leftTriggerVal",
                 new SpeedBar(smashboard.getNTable(), "/img/SpeedBar.png", 44, 205, 133,
                         435, false, TriggerInitClr, TriggerTermClr, InterpDegree));
         smashboard.addData("rightTriggerVal",
-                new SpeedBar(smashboard.getNTable(), "/img/SpeedBar.png", Width - 44, 205, -133,
+                new SpeedBar(smashboard.getNTable(), "/img/SpeedBar.png", Width - 49, 205, -133,
                         435, true, TriggerInitClr, TriggerTermClr, InterpDegree));
         smashboard.addData("Sensor Reading",
                 new Label(smashboard.getNTable(), 400, 400, Color.PINK, null, ""));
