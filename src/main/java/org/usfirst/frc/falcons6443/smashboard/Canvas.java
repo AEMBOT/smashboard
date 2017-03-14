@@ -95,8 +95,9 @@ public class Canvas extends JPanel {
         // http://stackoverflow.com/questions/7774960/swing-html-drawstring
         // http://stackoverflow.com/questions/10601676/display-a-webpage-inside-a-swing-application
         // https://dzone.com/articles/web-browser-your-java-swing
-        crp.paintComponent(g, new JLabel("<html><big><u>Hello</u></html>"), this,
-                40, 40, 100, 40);
+        crp.paintComponent(g, new JLabel(
+                "<html><body><img style=\"-webkit-user-select: none;\" src=\"http://10.1.0.132:8081\"></body></html>"),
+                this, 40, 40, 300, 300);
     }
 
 }
