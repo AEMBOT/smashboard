@@ -1,5 +1,6 @@
 package org.usfirst.frc.falcons6443.smashboard;
 
+import org.usfirst.frc.falcons6443.smashboard.layout.Layout;
 import org.usfirst.frc.falcons6443.smashboard.utilities.StaticImage;
 import org.usfirst.frc.falcons6443.smashboard.widgets.Widget;
 
@@ -15,15 +16,24 @@ import java.util.ArrayList;
 public class Canvas extends JPanel {
 
     // The lists of components that will be on this canvas
+    /*
     private ArrayList<Data> datas;
     private ArrayList<StaticImage> staticImages;
+    */
+    private Layout layout;
 
     /**
      * Construct the Canvas with empty lists of components
      */
     public Canvas() {
-        datas = new ArrayList<>();
-        staticImages = new ArrayList<>();
+        layout = new Layout ();
+    }
+
+    /**
+     * Construct the Canvas from a Layout object.
+     */
+    public Canvas(Layout layout) {
+        this.layout = layout;
     }
 
     /**
@@ -33,7 +43,7 @@ public class Canvas extends JPanel {
      * @return The data that is fetched
      */
     public Data getData(String key) {
-        for (Data data : datas)
+        for (Data data : layout.getData())
             if (data.getKey().equals(key))
                 return data;
         return null;
@@ -55,7 +65,7 @@ public class Canvas extends JPanel {
      * @return The canvas's list of data
      */
     public ArrayList<Data> getDatas() {
-        return datas;
+        return layout.getData();
     }
 
     /**
@@ -64,7 +74,7 @@ public class Canvas extends JPanel {
      * @param data The data to add
      */
     public void addData(Data data) {
-        datas.add(data);
+        layout.addData(data);
     }
 
     /**
@@ -73,7 +83,16 @@ public class Canvas extends JPanel {
      * @param image The static image to add
      */
     public void addSImage(StaticImage image) {
-        staticImages.add(image);
+        layout.addSI(image);
+    }
+
+    /**
+     * Sets the Canvas object's Layout.
+     *
+     * @param layout the Layout object to set it to
+     */
+    public void setLayout(Layout layout) {
+        this.layout = layout;
     }
 
     /**
@@ -84,9 +103,9 @@ public class Canvas extends JPanel {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        for (StaticImage sImage : staticImages)
+        for (StaticImage sImage : layout.getSI())
             sImage.paint(g, this);
-        for (Data data : datas)
+        for (Data data : layout.getData())
             data.getWidget().paint(g, this);
     }
 

@@ -1,6 +1,7 @@
 package org.usfirst.frc.falcons6443.smashboard;
 
 import edu.wpi.first.wpilibj.networktables.NetworkTable;
+import org.usfirst.frc.falcons6443.smashboard.layout.Layout;
 import org.usfirst.frc.falcons6443.smashboard.utilities.StaticImage;
 import org.usfirst.frc.falcons6443.smashboard.widgets.Widget;
 
@@ -98,6 +99,15 @@ public class Dashboard extends JFrame {
         canvas.repaint();
         for (Data data : canvas.getDatas())
             data.update();
+    }
+
+    /**
+     * Sets the layout of the Dashboard and it's Canvas.
+     *
+     * @param layout the wanted layout
+     */
+    public void setLayout (Layout layout) {
+        canvas.setLayout(layout);
     }
 
     /**
