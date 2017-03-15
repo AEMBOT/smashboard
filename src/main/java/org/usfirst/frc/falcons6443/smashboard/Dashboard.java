@@ -18,6 +18,12 @@ public class Dashboard extends JFrame {
     private Color bgColor;
     private boolean isResizable;
     private int width, height;
+
+    private JMenuBar menuBar;
+    private JMenu fileMenu;
+
+    private JMenuItem loadXMLOption;
+
     private Canvas canvas;
     private NetworkTable nTable;
 
@@ -42,6 +48,11 @@ public class Dashboard extends JFrame {
         nTable = NetworkTable.getTable(nTableKey);
 
         canvas = new Canvas();
+        menuBar = new JMenuBar();
+        fileMenu = new JMenu("File");
+
+        loadXMLOption = new JMenuItem("Load XML layout...");
+
         this.title = title;
         this.bgColor = bgColor;
         this.isResizable = isResizable;
@@ -55,7 +66,15 @@ public class Dashboard extends JFrame {
      */
     public void init() {
         canvas.setBackground(bgColor);
+
         add(canvas);
+
+        fileMenu.add(loadXMLOption);
+
+        menuBar.add(fileMenu);
+
+        menuBar.setVisible(true);
+        setJMenuBar(menuBar);
 
         setTitle(title);
         getContentPane().setBackground(bgColor);
