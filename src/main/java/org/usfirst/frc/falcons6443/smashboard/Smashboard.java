@@ -46,25 +46,42 @@ public class Smashboard {
      */
     private void init() {
         // Add the data and images needed in the application to the smashboard
+
+        // Static images
         smashboard.addSImage("/img/Banner.png", 0, 0, Width, 153);
         smashboard.addSImage("/img/SpeedBarLeftScale.png", 0, 174, 177, 466);
         smashboard.addSImage("/img/SpeedBarRightScale.png", Width - 182, 174, 177, 466);
-        smashboard.addData("leftTriggerVal",
+
+        // Speed bars
+        smashboard.addData("RopeClimber",
                 new SpeedBar(smashboard.getNTable(), "/img/SpeedBar.png", 44, 205, 133,
                         435, false, TriggerInitClr, TriggerTermClr, InterpDegree));
-        smashboard.addData("rightTriggerVal",
+        smashboard.addData("Speed",
                 new SpeedBar(smashboard.getNTable(), "/img/SpeedBar.png", Width - 49, 205, -133,
                         435, true, TriggerInitClr, TriggerTermClr, InterpDegree));
-        smashboard.addData("Sensor Reading",
-                new Label(smashboard.getNTable(), 400, 400, Color.PINK, null, ""));
+
+        // Gear Holder Status
+        smashboard.addData("GearHolder",
+                new GearHolderStatus(smashboard.getNTable(), "/img/OpenGear.png",
+                        "/img/ClosedGear.png", 350, 400, 150, 50));
+
+        // Labels
+        smashboard.addData("Turn",
+                new Label(smashboard.getNTable(), 400, 550, Color.WHITE, null, 0));
+//        smashboard.addData("GearHolder",
+//                new Label(smashboard.getNTable(), 400, 400, Color.WHITE, null, false));
+//        smashboard.addData("Sensor Reading",
+//                new Label(smashboard.getNTable(), 400, 400, Color.PINK, null, ""));
+
+        // Compass
         smashboard.addData("robotHeadingVal",
-                new Compass(smashboard.getNTable(), "/img/CompassNeedle.png", (Width / 2 -  15), 200,
+                new Compass(smashboard.getNTable(), "/img/CompassNeedle.png", (Width / 2 - 15), 200,
                         30, 154, 0,
-                            new StaticImage((Width / 2 - 78), 200, 156, 156, "/img/CompassBack.png"),
-                            new StaticImage((Width / 2 - 18), 260, 36, 36, "/img/CompassMiddle.png")
-                        ));
-        smashboard.addData("transmissionLevel",
-                new Label(smashboard.getNTable(), 200, 50, 50, 50, Color.WHITE, null, ""));
+                        new StaticImage((Width / 2 - 78), 200, 156, 156, "/img/CompassBack.png"),
+                        new StaticImage((Width / 2 - 18), 260, 36, 36, "/img/CompassMiddle.png")
+                ));
+//        smashboard.addData("transmissionLevel",
+//                new Label(smashboard.getNTable(), 200, 50, 50, 50, Color.WHITE, null, ""));
 
         // Initialize the smashboard's properties
         smashboard.init();

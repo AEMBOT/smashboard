@@ -13,7 +13,7 @@ import java.awt.image.ImageObserver;
 public class Label extends Widget {
 
     private String lName;
-    private String value;
+    private double value;
     private Color color;
     private Font font;
 
@@ -28,7 +28,7 @@ public class Label extends Widget {
      * @param value  The value to display as the text of the label; This will stay constant if nTable is null
      */
     public Label(NetworkTable nTable, int x, int y, Color color,
-                 Font font, String value) {
+                 Font font, double value) {
         super(nTable, "", x, y, 0, 0);
         this.color = color;
         this.font = font;
@@ -81,7 +81,7 @@ public class Label extends Widget {
     public void update(String key) {
         lName = key;
         if (nTable != null)
-            value = nTable.getValue(key, null).toString();
+            value = nTable.getNumber(key, 0);
     }
 
 }
