@@ -67,7 +67,7 @@ public class Smashboard {
                 new SendableChooser(smashboard.getNTable(), "/img/DropdownBar.png", (Width / 2 - 78), 400,
                         156, 36, Sendable.COMMAND, "Autonomy Command:",
 //                        smashboard.getNTable().getStringArray("autoCommands", new String[1]), Color.WHITE
-                        new String[] {"Meme"}, Color.WHITE, "/img/DropdownOption.png"
+                        new String[] {"Meme", "Neme"}, Color.WHITE, "/img/DropdownOption.png"
                 ));
 
         // Initialize the smashboard's properties

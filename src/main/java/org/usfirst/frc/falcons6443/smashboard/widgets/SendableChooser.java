@@ -54,8 +54,11 @@ public class SendableChooser extends Widget {
         g.drawImage(sprite, x, y + 10, width, height, observer);
         g.drawString(defaultTxt, x + 50, y + 30);
         if (menuOpen)
-            for (int op = 0; op < options.length; op++)
+            for (int op = 0; op < options.length; op++) {
                 g.drawImage(optionSprite, x, (y + 10 + height + (op * height)), width, height, observer);
+                g.setColor(Color.BLACK);
+                g.drawString(options[op], x + 10, (y + 10 + height + (op * height)) + 20);
+            }
     }
 
     @Override
@@ -68,7 +71,6 @@ public class SendableChooser extends Widget {
         double mouseX = mouseEvent.getX(), mouseY = mouseEvent.getY();
         if (mouseX >= x && mouseX <= (x + width) && mouseY >= y && mouseY <= (y + height)) {
             menuOpen = !menuOpen;
-            System.out.println(menuOpen);
         }
     }
 }
