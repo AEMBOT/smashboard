@@ -68,8 +68,8 @@ public class SendableChooser extends Widget {
 
     @Override
     public void mouseClicked(MouseEvent mouseEvent) {
-        double mouseX = mouseEvent.getX(), mouseY = mouseEvent.getY();
-        if (mouseX >= x && mouseX <= (x + width) && mouseY >= y && mouseY <= (y + height)) {
+        double mouseX = mouseEvent.getX(), mouseY = mouseEvent.getY() - 25;
+        if (mouseX >= x && mouseX <= (x + width) && mouseY >= (y + 10) && mouseY <= (y + height + 10)) {
             menuOpen = !menuOpen;
         }
     }
