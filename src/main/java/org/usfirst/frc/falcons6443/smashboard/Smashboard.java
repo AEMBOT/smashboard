@@ -1,8 +1,10 @@
 package org.usfirst.frc.falcons6443.smashboard;
 
+import org.usfirst.frc.falcons6443.smashboard.utilities.Sendable;
 import org.usfirst.frc.falcons6443.smashboard.utilities.StaticImage;
-import org.usfirst.frc.falcons6443.smashboard.widgets.*;
-import org.usfirst.frc.falcons6443.smashboard.widgets.Label;
+import org.usfirst.frc.falcons6443.smashboard.widgets.Compass;
+import org.usfirst.frc.falcons6443.smashboard.widgets.SendableChooser;
+import org.usfirst.frc.falcons6443.smashboard.widgets.SpeedBar;
 
 import java.awt.*;
 
@@ -55,16 +57,18 @@ public class Smashboard {
         smashboard.addData("rightTriggerVal",
                 new SpeedBar(smashboard.getNTable(), "/img/SpeedBar.png", Width - 49, 205, -133,
                         435, true, TriggerInitClr, TriggerTermClr, InterpDegree));
-        smashboard.addData("Sensor Reading",
-                new Label(smashboard.getNTable(), 400, 400, Color.PINK, null, ""));
         smashboard.addData("robotHeadingVal",
-                new Compass(smashboard.getNTable(), "/img/CompassNeedle.png", (Width / 2 -  15), 200,
+                new Compass(smashboard.getNTable(), "/img/CompassNeedle.png", (Width / 2 - 15), 200,
                         30, 154, 0,
-                            new StaticImage((Width / 2 - 78), 200, 156, 156, "/img/CompassBack.png"),
-                            new StaticImage((Width / 2 - 18), 260, 36, 36, "/img/CompassMiddle.png")
-                        ));
-        smashboard.addData("transmissionLevel",
-                new Label(smashboard.getNTable(), 200, 50, 50, 50, Color.WHITE, null, ""));
+                        new StaticImage((Width / 2 - 78), 200, 156, 156, "/img/CompassBack.png"),
+                        new StaticImage((Width / 2 - 18), 260, 36, 36, "/img/CompassMiddle.png")
+                ));
+        smashboard.addData("autonomyCommand",
+                new SendableChooser(smashboard.getNTable(), "/img/DropdownBar.png", (Width / 2 - 78), 400,
+                        156, 36, Sendable.COMMAND, "Autonomy Command:",
+//                        smashboard.getNTable().getStringArray("autoCommands", new String[1]), Color.WHITE
+                        new String[] {"Meme"}, Color.WHITE, "/img/DropdownOption.png"
+                ));
 
         // Initialize the smashboard's properties
         smashboard.init();
