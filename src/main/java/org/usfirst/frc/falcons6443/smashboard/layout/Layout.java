@@ -1,8 +1,18 @@
 package org.usfirst.frc.falcons6443.smashboard.layout;
 
+import edu.wpi.first.wpilibj.networktables.NetworkTable;
 import org.usfirst.frc.falcons6443.smashboard.Data;
 import org.usfirst.frc.falcons6443.smashboard.utilities.StaticImage;
+import org.usfirst.frc.falcons6443.smashboard.widgets.SpeedBar;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import java.io.File;
+import java.lang.annotation.Documented;
 import java.util.ArrayList;
 
 /**
@@ -16,9 +26,15 @@ public class Layout {
     private ArrayList<StaticImage> staticImages;
     private ArrayList<Data> data;
 
+    private NetworkTable ntable;
+
+    /**
+     * Initializes a Layout object with an empty Data and StaticImages
+     * ArrayList, both with an initial size of 5.
+     */
     public Layout () {
         staticImages = new ArrayList<>(5);
-        data = new ArrayList<Data>(5);
+        data = new ArrayList<>(5);
     }
 
     /**

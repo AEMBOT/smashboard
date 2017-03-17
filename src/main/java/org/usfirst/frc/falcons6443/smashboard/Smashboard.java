@@ -1,5 +1,7 @@
 package org.usfirst.frc.falcons6443.smashboard;
 
+import org.usfirst.frc.falcons6443.smashboard.layout.Layout;
+import org.usfirst.frc.falcons6443.smashboard.layout.LayoutLoader;
 import org.usfirst.frc.falcons6443.smashboard.utilities.StaticImage;
 import org.usfirst.frc.falcons6443.smashboard.widgets.*;
 import org.usfirst.frc.falcons6443.smashboard.widgets.Label;
@@ -46,6 +48,7 @@ public class Smashboard {
      */
     private void init() {
         // Add the data and images needed in the application to the smashboard
+        /*
         smashboard.addSImage("/img/Banner.png", 0, 0, Width, 153);
         smashboard.addSImage("/img/SpeedBarLeftScale.png", 0, 174, 177, 466);
         smashboard.addSImage("/img/SpeedBarRightScale.png", Width - 182, 174, 177, 466);
@@ -63,10 +66,14 @@ public class Smashboard {
                             new StaticImage((Width / 2 - 78), 200, 156, 156, "/img/CompassBack.png"),
                             new StaticImage((Width / 2 - 18), 260, 36, 36, "/img/CompassMiddle.png")
                         ));
+        */
         /*
         smashboard.addData("transmissionLevel",
                 new Label(smashboard.getNTable(), 200, 50, 50, 50, Color.WHITE, null, ""));
         */
+        try {
+            smashboard.setLayout(new LayoutLoader().loadFromXML("/home/chris-medlin/test/shit.xml", smashboard.getNTable()));
+        } catch (Exception e) {/* i don't care */}
 
         // Initialize the smashboard's properties
         smashboard.init();

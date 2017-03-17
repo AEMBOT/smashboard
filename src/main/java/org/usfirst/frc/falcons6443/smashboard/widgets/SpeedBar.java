@@ -2,6 +2,7 @@ package org.usfirst.frc.falcons6443.smashboard.widgets;
 
 import edu.wpi.first.wpilibj.networktables.NetworkTable;
 import org.usfirst.frc.falcons6443.smashboard.utilities.ColorUtils;
+import org.w3c.dom.Element;
 
 import java.awt.*;
 import java.awt.image.ImageObserver;
