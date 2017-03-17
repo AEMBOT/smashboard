@@ -57,8 +57,8 @@ public class Dashboard extends JFrame {
         canvas.setBackground(bgColor);
         add(canvas);
 
-        // Have frame listen for mouse events and respond with events from each widget
-        canvas.getDatas().forEach(data -> addMouseListener(data.getWidget()));
+        // Have canvas listen for mouse events and respond with events from each widget
+        canvas.getDatas().forEach(data -> canvas.addMouseListener(data.getWidget()));
 
         setTitle(title);
         getContentPane().setBackground(bgColor);
