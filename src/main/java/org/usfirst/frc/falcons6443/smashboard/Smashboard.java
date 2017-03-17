@@ -1,9 +1,8 @@
 package org.usfirst.frc.falcons6443.smashboard;
 
-import org.usfirst.frc.falcons6443.smashboard.utilities.Sendable;
 import org.usfirst.frc.falcons6443.smashboard.utilities.StaticImage;
 import org.usfirst.frc.falcons6443.smashboard.widgets.Compass;
-import org.usfirst.frc.falcons6443.smashboard.widgets.SendableChooser;
+import org.usfirst.frc.falcons6443.smashboard.widgets.CommandChooser;
 import org.usfirst.frc.falcons6443.smashboard.widgets.SpeedBar;
 
 import java.awt.*;
@@ -63,11 +62,9 @@ public class Smashboard {
                         new StaticImage((Width / 2 - 78), 200, 156, 156, "/img/CompassBack.png"),
                         new StaticImage((Width / 2 - 18), 260, 36, 36, "/img/CompassMiddle.png")
                 ));
-        smashboard.addData("autonomyCommand",
-                new SendableChooser(smashboard.getNTable(), "/img/DropdownBar.png", (Width / 2 - 78), 400,
-                        156, 36, Sendable.COMMAND, "Autonomy Command:",
-//                        smashboard.getNTable().getStringArray("autoCommands", new String[1]), Color.WHITE
-                        new String[] {"Meme", "Neme"}, Color.WHITE, "/img/DropdownOption.png"
+        smashboard.addData("teleopChooser",
+                new CommandChooser(smashboard.getNTable(), "/img/DropdownBar.png", (Width / 2 - 78), 400,
+                        "TeleOp Command:", Color.WHITE, "/img/DropdownOption.png"
                 ));
 
         // Initialize the smashboard's properties

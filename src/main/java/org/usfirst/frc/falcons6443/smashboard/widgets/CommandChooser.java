@@ -1,7 +1,6 @@
 package org.usfirst.frc.falcons6443.smashboard.widgets;
 
 import edu.wpi.first.wpilibj.networktables.NetworkTable;
-import org.usfirst.frc.falcons6443.smashboard.utilities.Sendable;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -12,7 +11,7 @@ import java.io.IOException;
 /**
  * @author Shivashriganesh Mahato
  */
-public class SendableChooser extends Widget {
+public class CommandChooser extends Widget {
 
     private Image optionSprite;
     private String defaultTxt, label;
@@ -29,22 +28,21 @@ public class SendableChooser extends Widget {
      *                   initialized to null
      * @param x          The widget's x coordinate on the application's canvas
      * @param y          The widget's y coordinate on the application's canvas
-     * @param width      The widget's width on the application's canvas
-     * @param height     The widget's height on the application's canvas
      */
-    public SendableChooser(NetworkTable nTable, String spritePath, int x, int y, int width, int height, Sendable type,
-                           String label, String[] options, Color labelClr, String optionSpritePath) {
-        super(nTable, spritePath, x, y, width, height);
+    public CommandChooser(NetworkTable nTable, String spritePath, int x, int y,
+                          String label, Color labelClr, String optionSpritePath) {
+        super(nTable, spritePath, x, y, 156, 36);
         try {
             optionSprite = ImageIO.read(this.getClass().getResource(optionSpritePath));
         } catch (IOException e) {
             e.printStackTrace();
         }
         this.label = label;
-        this.options = options;
         this.labelClr = labelClr;
-        defaultTxt = type.getName();
+        options = new String[50];
+        defaultTxt = "";
         menuOpen = false;
+        selected = -1;
     }
 
     @Override
@@ -52,7 +50,7 @@ public class SendableChooser extends Widget {
         g.setColor(labelClr);
         g.drawString(label, x, y);
         g.drawImage(sprite, x, y + 10, width, height, observer);
-        g.drawString(defaultTxt, x + 50, y + 30);
+        g.drawString(selected == -1 ? defaultTxt : options[selected], x + 50, y + 30);
         if (menuOpen)
             for (int op = 0; op < options.length; op++) {
                 g.drawImage(optionSprite, x, (y + 10 + height + (op * height)), width, height, observer);
@@ -63,14 +61,62 @@ public class SendableChooser extends Widget {
 
     @Override
     public void update(String key) {
-
+        defaultTxt = nTable.getString(key + "Default", "");
+        options = nTable.getStringArray(key + "Options", new String[] {"UNDEFINED"});
+        if (selected != -1)
+            nTable.putString(key, options[selected]);
     }
 
     @Override
     public void mouseClicked(MouseEvent mouseEvent) {
         double mouseX = mouseEvent.getX(), mouseY = mouseEvent.getY();
-        if (mouseX >= x && mouseX <= (x + width) && mouseY >= (y + 10) && mouseY <= (y + height + 10)) {
-            menuOpen = !menuOpen;
+        if (mouseX >= x && mouseX <= (x + width)) {
+            if (mouseY >= (y + 10) && mouseY <= (y + height + 10))
+                menuOpen = !menuOpen;
+            if (mouseY >= (y + 10 + height) && mouseY <= (y + height + 10 + (height * options.length)) && menuOpen) {
+                selected = (int) ((mouseY - (y + 10 + height)) / height);
+                menuOpen = false;
+            }
         }
+    }
+
+    public String getDefaultTxt() {
+        return defaultTxt;
+    }
+
+    public void setDefaultTxt(String defaultTxt) {
+        this.defaultTxt = defaultTxt;
+    }
+
+    public String getLabel() {
+        return label;
+    }
+
+    public void setLabel(String label) {
+        this.label = label;
+    }
+
+    public Color getLabelClr() {
+        return labelClr;
+    }
+
+    public void setLabelClr(Color labelClr) {
+        this.labelClr = labelClr;
+    }
+
+    public Image getOptionSprite() {
+        return optionSprite;
+    }
+
+    public String[] getOptions() {
+        return options;
+    }
+
+    public int getSelected() {
+        return selected;
+    }
+
+    public boolean isMenuOpen() {
+        return menuOpen;
     }
 }
