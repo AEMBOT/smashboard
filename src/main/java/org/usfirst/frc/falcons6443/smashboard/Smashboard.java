@@ -47,21 +47,36 @@ public class Smashboard {
      */
     private void init() {
         // Add the data and images needed in the application to the smashboard
+
+        // Static images
         smashboard.addSImage("/img/Banner.png", 0, 0, Width, 153);
         smashboard.addSImage("/img/SpeedBarLeftScale.png", 0, 174, 177, 466);
         smashboard.addSImage("/img/SpeedBarRightScale.png", Width - 182, 174, 177, 466);
-        smashboard.addData("leftTriggerVal",
+
+        // Speed bars
+        smashboard.addData("RopeClimber",
                 new SpeedBar(smashboard.getNTable(), "/img/SpeedBar.png", 44, 205, 133,
                         435, false, TriggerInitClr, TriggerTermClr, InterpDegree));
-        smashboard.addData("rightTriggerVal",
+        smashboard.addData("Speed",
                 new SpeedBar(smashboard.getNTable(), "/img/SpeedBar.png", Width - 49, 205, -133,
                         435, true, TriggerInitClr, TriggerTermClr, InterpDegree));
+
+        // Gear Holder Status
+        smashboard.addData("GearHolder",
+                new GearHolderStatus(smashboard.getNTable(), "/img/OpenGear.png",
+                        "/img/ClosedGear.png", 350, 400, 150, 50));
+
+        // Labels
+
+        // Compass
         smashboard.addData("robotHeadingVal",
                 new Compass(smashboard.getNTable(), "/img/CompassNeedle.png", (Width / 2 - 15), 200,
                         30, 154, 0,
                         new StaticImage((Width / 2 - 78), 200, 156, 156, "/img/CompassBack.png"),
                         new StaticImage((Width / 2 - 18), 260, 36, 36, "/img/CompassMiddle.png")
                 ));
+        
+        // Choosers
         smashboard.addData("teleopChooser",
                 new CommandChooser(smashboard.getNTable(), "/img/DropdownBar.png", (Width / 2 - 78), 400,
                         "TeleOp Command:", Color.WHITE, "/img/DropdownOption.png"
