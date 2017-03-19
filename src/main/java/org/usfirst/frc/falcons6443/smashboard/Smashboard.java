@@ -1,8 +1,9 @@
 package org.usfirst.frc.falcons6443.smashboard;
 
 import org.usfirst.frc.falcons6443.smashboard.utilities.StaticImage;
-import org.usfirst.frc.falcons6443.smashboard.widgets.*;
-import org.usfirst.frc.falcons6443.smashboard.widgets.Label;
+import org.usfirst.frc.falcons6443.smashboard.widgets.Compass;
+import org.usfirst.frc.falcons6443.smashboard.widgets.CommandChooser;
+import org.usfirst.frc.falcons6443.smashboard.widgets.SpeedBar;
 
 import java.awt.*;
 
@@ -66,12 +67,6 @@ public class Smashboard {
                         "/img/ClosedGear.png", 350, 400, 150, 50));
 
         // Labels
-        smashboard.addData("Turn",
-                new Label(smashboard.getNTable(), 400, 550, Color.WHITE, null, 0));
-//        smashboard.addData("GearHolder",
-//                new Label(smashboard.getNTable(), 400, 400, Color.WHITE, null, false));
-//        smashboard.addData("Sensor Reading",
-//                new Label(smashboard.getNTable(), 400, 400, Color.PINK, null, ""));
 
         // Compass
         smashboard.addData("robotHeadingVal",
@@ -80,8 +75,12 @@ public class Smashboard {
                         new StaticImage((Width / 2 - 78), 200, 156, 156, "/img/CompassBack.png"),
                         new StaticImage((Width / 2 - 18), 260, 36, 36, "/img/CompassMiddle.png")
                 ));
-//        smashboard.addData("transmissionLevel",
-//                new Label(smashboard.getNTable(), 200, 50, 50, 50, Color.WHITE, null, ""));
+        
+        // Choosers
+        smashboard.addData("teleopChooser",
+                new CommandChooser(smashboard.getNTable(), "/img/DropdownBar.png", (Width / 2 - 78), 400,
+                        "TeleOp Command:", Color.WHITE, "/img/DropdownOption.png"
+                ));
 
         // Initialize the smashboard's properties
         smashboard.init();

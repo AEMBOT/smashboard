@@ -4,6 +4,8 @@ import edu.wpi.first.wpilibj.networktables.NetworkTable;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.image.ImageObserver;
 import java.io.IOException;
 
@@ -12,7 +14,7 @@ import java.io.IOException;
  *
  * @author Shivashriganesh Mahato
  */
-public abstract class Widget {
+public abstract class Widget implements MouseListener {
 
     protected Image sprite;
     protected int x, y, width, height;
@@ -143,5 +145,20 @@ public abstract class Widget {
      *            updated value
      */
     public abstract void update(String key);
+
+    @Override
+    public void mouseClicked(MouseEvent mouseEvent) {}
+
+    @Override
+    public void mousePressed(MouseEvent mouseEvent) {}
+
+    @Override
+    public void mouseReleased(MouseEvent mouseEvent) {}
+
+    @Override
+    public void mouseEntered(MouseEvent mouseEvent) {}
+
+    @Override
+    public void mouseExited(MouseEvent mouseEvent) {}
 
 }
