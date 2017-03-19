@@ -1,8 +1,9 @@
 package org.usfirst.frc.falcons6443.smashboard;
 
 import org.usfirst.frc.falcons6443.smashboard.utilities.StaticImage;
-import org.usfirst.frc.falcons6443.smashboard.widgets.Compass;
 import org.usfirst.frc.falcons6443.smashboard.widgets.CommandChooser;
+import org.usfirst.frc.falcons6443.smashboard.widgets.Compass;
+import org.usfirst.frc.falcons6443.smashboard.widgets.GearHolderStatus;
 import org.usfirst.frc.falcons6443.smashboard.widgets.SpeedBar;
 
 import java.awt.*;
@@ -64,7 +65,7 @@ public class Smashboard {
         // Gear Holder Status
         smashboard.addData("GearHolder",
                 new GearHolderStatus(smashboard.getNTable(), "/img/OpenGear.png",
-                        "/img/ClosedGear.png", 350, 400, 150, 50));
+                        "/img/ClosedGear.png", 350, 500, 150, 50));
 
         // Labels
 
