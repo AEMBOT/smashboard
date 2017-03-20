@@ -81,7 +81,7 @@ public class Smashboard {
                 ));
 
         smashboard.addData("something",
-                new Clock(smashboard.getNTable(), "", 250, 550, 50, Color.WHITE, Color.RED));
+                new Clock(smashboard.getNTable(), "", 250, 550, 40, Color.WHITE, Color.RED));
 
         // Initialize the smashboard's properties
         smashboard.init();
