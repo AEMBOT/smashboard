@@ -35,11 +35,22 @@ public class GearHolderStatus extends Widget {
         isOpen = false;
     }
 
+    /**
+     * Draw the open or closed sprite depending on the status of the gear holder
+     *
+     * @param g        The Graphics object to draw this widget on
+     * @param observer The asynchronous update interface that receives notifications about Image information as the
+     */
     @Override
     public void paint(Graphics g, ImageObserver observer) {
         g.drawImage(isOpen ? sprite : closedSprite, x, y, width, height, observer);
     }
 
+    /**
+     * Update the status of the gear holder (open or closed)
+     *
+     * @param key The key of the data that this widget belongs to, and of the record that will be read to find the
+     */
     @Override
     public void update(String key) {
         isOpen = nTable.getBoolean(key, false);

@@ -1,10 +1,7 @@
 package org.usfirst.frc.falcons6443.smashboard;
 
 import org.usfirst.frc.falcons6443.smashboard.utilities.StaticImage;
-import org.usfirst.frc.falcons6443.smashboard.widgets.CommandChooser;
-import org.usfirst.frc.falcons6443.smashboard.widgets.Compass;
-import org.usfirst.frc.falcons6443.smashboard.widgets.GearHolderStatus;
-import org.usfirst.frc.falcons6443.smashboard.widgets.SpeedBar;
+import org.usfirst.frc.falcons6443.smashboard.widgets.*;
 
 import java.awt.*;
 
@@ -82,6 +79,9 @@ public class Smashboard {
                 new CommandChooser(smashboard.getNTable(), "/img/DropdownBar.png", (Width / 2 - 78), 400,
                         "TeleOp Command:", Color.WHITE, "/img/DropdownOption.png"
                 ));
+
+        smashboard.addData("something",
+                new Clock(smashboard.getNTable(), "", 250, 550, 50, Color.WHITE, Color.RED));
 
         // Initialize the smashboard's properties
         smashboard.init();

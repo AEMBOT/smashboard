@@ -146,18 +146,43 @@ public abstract class Widget implements MouseListener {
      */
     public abstract void update(String key);
 
+    /**
+     * Invoked when the mouse button has been clicked (pressed and released) on the canvas
+     *
+     * @param mouseEvent Properties of the mouse at this event
+     */
     @Override
     public void mouseClicked(MouseEvent mouseEvent) {}
 
+    /**
+     * Invoked when a mouse button has been pressed on the canvas
+     *
+     * @param mouseEvent Properties of the mouse at this event
+     */
     @Override
     public void mousePressed(MouseEvent mouseEvent) {}
 
+    /**
+     * Invoked when a mouse button has been released on the canvas
+     *
+     * @param mouseEvent Properties of the mouse at this event
+     */
     @Override
     public void mouseReleased(MouseEvent mouseEvent) {}
 
+    /**
+     * Invoked when the mouse enters the canvas
+     *
+     * @param mouseEvent Properties of the mouse at this event
+     */
     @Override
     public void mouseEntered(MouseEvent mouseEvent) {}
 
+    /**
+     * Invoked when the mouse exits the canvas
+     *
+     * @param mouseEvent Properties of the mouse at this event
+     */
     @Override
     public void mouseExited(MouseEvent mouseEvent) {}
 

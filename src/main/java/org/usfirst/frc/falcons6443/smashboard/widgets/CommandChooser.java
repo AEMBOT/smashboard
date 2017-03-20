@@ -45,6 +45,12 @@ public class CommandChooser extends Widget {
         selected = -1;
     }
 
+    /**
+     * Draw the command chooser: the name, the menu, and the options when it is open
+     *
+     * @param g        The Graphics object to draw this widget on
+     * @param observer The asynchronous update interface that receives notifications about Image information as the
+     */
     @Override
     public void paint(Graphics g, ImageObserver observer) {
         g.setColor(labelClr);
@@ -59,6 +65,12 @@ public class CommandChooser extends Widget {
             }
     }
 
+    /**
+     * Update the options and default text continuously in case they change somewhere in the robot code. Also push the
+     * selected option to the network table so the robot code can use it
+     *
+     * @param key The key of the data that this widget belongs to, and of the record that will be read to find the
+     */
     @Override
     public void update(String key) {
         defaultTxt = nTable.getString(key + "Default", "");
@@ -67,6 +79,13 @@ public class CommandChooser extends Widget {
             nTable.putString(key, options[selected]);
     }
 
+    /**
+     * Update the closed/open status of the options list based on clicking on the menu and on the options while it is
+     * open (clicking the menu toggles it, clicking an option closes it). Also, when an option is clicked, the selected
+     * value is updated
+     *
+     * @param mouseEvent Properties of the mouse at this event
+     */
     @Override
     public void mouseClicked(MouseEvent mouseEvent) {
         double mouseX = mouseEvent.getX(), mouseY = mouseEvent.getY();
@@ -80,42 +99,92 @@ public class CommandChooser extends Widget {
         }
     }
 
+    /**
+     * Accessor for defaultText
+     *
+     * @return The default text that shows up in the menu when no option is selected
+     */
     public String getDefaultTxt() {
         return defaultTxt;
     }
 
+    /**
+     * Mutator for defaultText
+     *
+     * @param defaultTxt The new default text
+     */
     public void setDefaultTxt(String defaultTxt) {
         this.defaultTxt = defaultTxt;
     }
 
+    /**
+     * Accessor for label
+     *
+     * @return The text of the label that shows up on top of the menu
+     */
     public String getLabel() {
         return label;
     }
 
+    /**
+     * Mutator for label
+     *
+     * @param label The new label text
+     */
     public void setLabel(String label) {
         this.label = label;
     }
 
+    /**
+     * Accessor for labelClr
+     *
+     * @return The color of the label that shows up on top of the menu
+     */
     public Color getLabelClr() {
         return labelClr;
     }
 
+    /**
+     * Mutator for labelClr
+     *
+     * @param labelClr The new label color
+     */
     public void setLabelClr(Color labelClr) {
         this.labelClr = labelClr;
     }
 
+    /**
+     * Accessor for optionSprite
+     *
+     * @return The background sprite for options
+     */
     public Image getOptionSprite() {
         return optionSprite;
     }
 
+    /**
+     * Accessor for options
+     *
+     * @return The list of options
+     */
     public String[] getOptions() {
         return options;
     }
 
+    /**
+     * Accessor for selected
+     *
+     * @return The index of the selected option
+     */
     public int getSelected() {
         return selected;
     }
 
+    /**
+     * Accessor for menuOpen
+     *
+     * @return Is the menu open (and the options showing)?
+     */
     public boolean isMenuOpen() {
         return menuOpen;
     }
