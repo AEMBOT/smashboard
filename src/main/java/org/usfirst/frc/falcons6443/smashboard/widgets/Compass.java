@@ -4,6 +4,7 @@ import edu.wpi.first.wpilibj.networktables.NetworkTable;
 import org.usfirst.frc.falcons6443.smashboard.utilities.StaticImage;
 
 import java.awt.*;
+import java.awt.geom.AffineTransform;
 import java.awt.image.ImageObserver;
 
 /**
@@ -13,6 +14,7 @@ import java.awt.image.ImageObserver;
  */
 public class Compass extends Widget {
 
+    private AffineTransform initTransform;
     private Graphics2D g2;
     private StaticImage back, fore;
     private int angle;
@@ -34,6 +36,7 @@ public class Compass extends Widget {
         this.angle = angle;
         this.back = back;
         this.fore = fore;
+        initTransform = new AffineTransform();
     }
 
     /**
@@ -48,8 +51,11 @@ public class Compass extends Widget {
         // Draw the back
         back.paint(g, observer);
 
-        // Draw the needle
+        // Store the current transformation so it can be reset after transforming the compass
         g2 = (Graphics2D) g;
+        initTransform = g2.getTransform();
+
+        // Draw the needle
         g2.translate(x, y);
         g2.rotate(Math.toRadians(angle), width / 2, height / 2);
         g2.drawImage(sprite, 0, 0, width, height, observer);
@@ -58,6 +64,9 @@ public class Compass extends Widget {
         g2.translate(-x, -y);
         g2.rotate(0, width / 2, height / 2);
         fore.paint(g, observer);
+
+        // Reset transformation to before compass was transformed
+        g2.setTransform(initTransform);
     }
 
     /**
