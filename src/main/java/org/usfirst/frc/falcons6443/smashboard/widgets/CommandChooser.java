@@ -62,7 +62,7 @@ public class CommandChooser extends Widget {
     @Override
     public void update(String key) {
         defaultTxt = nTable.getString(key + "Default", "");
-        options = nTable.getStringArray(key + "Options", new String[] {"UNDEFINED"});
+        options = nTable.getStringArray(key + "Options", new String[]{"UNDEFINED"});
         if (selected != -1)
             nTable.putString(key, options[selected]);
     }
@@ -73,11 +73,15 @@ public class CommandChooser extends Widget {
         if (mouseX >= x && mouseX <= (x + width)) {
             if (mouseY >= (y + 10) && mouseY <= (y + height + 10))
                 menuOpen = !menuOpen;
-            if (mouseY >= (y + 10 + height) && mouseY <= (y + height + 10 + (height * options.length)) && menuOpen) {
+            if (menuOpen && mouseY >= (y + 10 + height) && mouseY <= (y + height + 10 + (height * options.length))) {
                 selected = (int) ((mouseY - (y + 10 + height)) / height);
                 menuOpen = false;
             }
         }
+        if (menuOpen && !(mouseX >= x && mouseX <= (x + width) && mouseY >= (y + 10) &&
+                mouseY <= (y + height + 10 + (height * options.length))))
+            menuOpen = false;
+
     }
 
     public String getDefaultTxt() {
