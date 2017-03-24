@@ -1,10 +1,7 @@
 package org.usfirst.frc.falcons6443.smashboard;
 
 import org.usfirst.frc.falcons6443.smashboard.utilities.StaticImage;
-import org.usfirst.frc.falcons6443.smashboard.widgets.CommandChooser;
-import org.usfirst.frc.falcons6443.smashboard.widgets.Compass;
-import org.usfirst.frc.falcons6443.smashboard.widgets.GearHolderStatus;
-import org.usfirst.frc.falcons6443.smashboard.widgets.SpeedBar;
+import org.usfirst.frc.falcons6443.smashboard.widgets.*;
 
 import java.awt.*;
 
@@ -76,11 +73,18 @@ public class Smashboard {
                         new StaticImage((Width / 2 - 78), 200, 156, 156, "/img/CompassBack.png"),
                         new StaticImage((Width / 2 - 18), 260, 36, 36, "/img/CompassMiddle.png")
                 ));
-        
+
         // Choosers
         smashboard.addData("teleopChooser",
                 new CommandChooser(smashboard.getNTable(), "/img/DropdownBar.png", (Width / 2 - 78), 400,
                         "TeleOp Command:", Color.WHITE, "/img/DropdownOption.png"
+                ));
+
+        // Drive Direction Status
+        smashboard.addData("reversed",
+                new DriveDirection(smashboard.getNTable(),
+                        new StaticImage((Width / 2 + 130), 150, 80, 80, "/img/Forward.png"),
+                        new StaticImage((Width / 2 + 130), 240, 80, 80, "/img/Reverse.png")
                 ));
 
         // Initialize the smashboard's properties
