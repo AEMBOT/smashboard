@@ -6,7 +6,7 @@ import java.awt.*;
 import java.awt.image.ImageObserver;
 
 /**
- * A widget that displays simple text
+ * A widget that displays simple text.
  *
  * @author Shivashriganesh Mahato
  */
@@ -18,7 +18,7 @@ public class Label extends Widget {
     private Font font;
 
     /**
-     * Construct the Label with its properties
+     * Construct the Label with its properties.
      *
      * @param nTable The network table that the application is talking to; Make null if value should be constant
      * @param x      The label's x coordinate on the application's canvas
@@ -37,7 +37,7 @@ public class Label extends Widget {
     }
 
     /**
-     * Accessor for lName
+     * Accessor for lName.
      *
      * @return The label's name
      */
@@ -46,7 +46,7 @@ public class Label extends Widget {
     }
 
     /**
-     * Mutator for lName
+     * Mutator for lName.
      *
      * @param lName The new label name
      */
@@ -55,7 +55,7 @@ public class Label extends Widget {
     }
 
     /**
-     * Paint this widget on the canvas
+     * Paint this widget on the canvas.
      *
      * @param g        The Graphics object to draw this widget on
      * @param observer The asynchronous update interface that receives notifications about Image information as the
@@ -70,9 +70,8 @@ public class Label extends Widget {
     }
 
     /**
-     * Update the properties and values of this widget
-     * For Label, value is set to the value read from the network table of the key @param key only if nTable is not
-     * null. If it is null, the value is constant therefore not updated
+     * Update the label value if this label is dynamic. If nTable is null, the label is constant and the value isn't
+     * updated.
      *
      * @param key The key of the data that this widget belongs to, and of the record that will be read to find the
      *            updated value

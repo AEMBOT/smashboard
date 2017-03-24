@@ -6,7 +6,7 @@ import java.awt.image.ImageObserver;
 import java.io.IOException;
 
 /**
- * A constant image that is drawn on the canvas
+ * A constant image that is drawn on the canvas.
  *
  * @author Shivashriganesh Mahato
  */
@@ -17,7 +17,7 @@ public class StaticImage {
     private Image sprite;
 
     /**
-     * Construct the StaticImage with its properties
+     * Construct the StaticImage with its properties.
      *
      * @param x      The static image's x coordinate on the application's canvas
      * @param y      The static image's y coordinate on the application's canvas
@@ -34,7 +34,7 @@ public class StaticImage {
     }
 
     /**
-     * Accessor for x
+     * Accessor for x.
      *
      * @return The static image's x coordinate
      */
@@ -43,7 +43,7 @@ public class StaticImage {
     }
 
     /**
-     * Mutator for x
+     * Mutator for x.
      *
      * @param x The new x position
      */
@@ -52,7 +52,7 @@ public class StaticImage {
     }
 
     /**
-     * Accessor for y
+     * Accessor for y.
      *
      * @return The static image's y coordinate
      */
@@ -61,7 +61,7 @@ public class StaticImage {
     }
 
     /**
-     * Mutator for y
+     * Mutator for y.
      *
      * @param y The new y position
      */
@@ -70,7 +70,7 @@ public class StaticImage {
     }
 
     /**
-     * Accessor for width
+     * Accessor for width.
      *
      * @return The static image's width
      */
@@ -79,7 +79,7 @@ public class StaticImage {
     }
 
     /**
-     * Mutator for width
+     * Mutator for width.
      *
      * @param width The new width
      */
@@ -88,7 +88,7 @@ public class StaticImage {
     }
 
     /**
-     * Accessor for height
+     * Accessor for height.
      *
      * @return The static image's height
      */
@@ -97,7 +97,7 @@ public class StaticImage {
     }
 
     /**
-     * Mutator for height
+     * Mutator for height.
      *
      * @param height The new height
      */
@@ -106,7 +106,7 @@ public class StaticImage {
     }
 
     /**
-     * Accessor for path
+     * Accessor for path.
      *
      * @return The static image's path in the resources root
      */
@@ -115,7 +115,7 @@ public class StaticImage {
     }
 
     /**
-     * Mutator for the path, which also sets the new image based on the new path
+     * Mutator for the path, which also sets the new image based on the new path.
      *
      * @param path The new path of the image in the resources root
      */
@@ -130,7 +130,7 @@ public class StaticImage {
     }
 
     /**
-     * Accessor for sprite
+     * Accessor for sprite.
      *
      * @return The static image's sprite (the image itself)
      */
@@ -139,7 +139,7 @@ public class StaticImage {
     }
 
     /**
-     * Paint this static image on the canvas
+     * Paint this static image on the canvas.
      *
      * @param g        The Graphics object to draw this widget on
      * @param observer The asynchronous update interface that receives notifications about Image information as the

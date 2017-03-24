@@ -1,15 +1,12 @@
 package org.usfirst.frc.falcons6443.smashboard;
 
 import org.usfirst.frc.falcons6443.smashboard.utilities.StaticImage;
-import org.usfirst.frc.falcons6443.smashboard.widgets.CommandChooser;
-import org.usfirst.frc.falcons6443.smashboard.widgets.Compass;
-import org.usfirst.frc.falcons6443.smashboard.widgets.GearHolderStatus;
-import org.usfirst.frc.falcons6443.smashboard.widgets.SpeedBar;
+import org.usfirst.frc.falcons6443.smashboard.widgets.*;
 
 import java.awt.*;
 
 /**
- * The main class that defines the Smashboard application properties and updates the components
+ * The main class that defines the Smashboard application properties and updates the components.
  *
  * @author Shivashriganesh Mahato
  */
@@ -27,7 +24,7 @@ public class Smashboard {
     private Dashboard smashboard;
 
     /**
-     * Construct the Smashboard with parameters to initialize the Dashboard
+     * Construct the Smashboard with parameters to initialize the Dashboard.
      *
      * @param ipAddress   The IP Address of the RoboRIO (where the wanted NetworkTables are stored) to connect to
      * @param nTableKey   The name of the NetworkTable to retrieve data from (if it doesn't exist already, it will be
@@ -44,7 +41,7 @@ public class Smashboard {
     }
 
     /**
-     * Initialize the Smashboard with the data values and images that should be displayed
+     * Initialize the Smashboard with the data values and images that should be displayed.
      */
     private void init() {
         // Add the data and images needed in the application to the smashboard
@@ -76,11 +73,18 @@ public class Smashboard {
                         new StaticImage((Width / 2 - 78), 200, 156, 156, "/img/CompassBack.png"),
                         new StaticImage((Width / 2 - 18), 260, 36, 36, "/img/CompassMiddle.png")
                 ));
-        
+
         // Choosers
         smashboard.addData("teleopChooser",
                 new CommandChooser(smashboard.getNTable(), "/img/DropdownBar.png", (Width / 2 - 78), 400,
                         "TeleOp Command:", Color.WHITE, "/img/DropdownOption.png"
+                ));
+
+        // Drive Direction Status
+        smashboard.addData("reversed",
+                new DriveDirection(smashboard.getNTable(),
+                        new StaticImage((Width / 2 + 130), 150, 80, 80, "/img/Forward.png"),
+                        new StaticImage((Width / 2 + 130), 240, 80, 80, "/img/Reverse.png")
                 ));
 
         // Initialize the smashboard's properties
@@ -90,7 +94,7 @@ public class Smashboard {
     }
 
     /**
-     * Run a loop that will update the data
+     * Run a loop that will update the data.
      */
     private void loop() {
         // Update loop
@@ -106,7 +110,7 @@ public class Smashboard {
     }
 
     /**
-     * Run the application
+     * Run the application.
      */
     public static void main(String[] args) {
         // Initialize and run the main Smashboard instance

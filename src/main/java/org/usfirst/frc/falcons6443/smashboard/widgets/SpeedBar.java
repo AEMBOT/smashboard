@@ -20,7 +20,7 @@ public class SpeedBar extends Widget {
     private int interpDegree;
 
     /**
-     * Construct the SpeedBar with its properties
+     * Construct the SpeedBar with its properties.
      *
      * @param nTable       The network table that the application is talking to
      * @param barSprite    The path of the sprite of the speed bar in the resources root
@@ -45,7 +45,7 @@ public class SpeedBar extends Widget {
     }
 
     /**
-     * Paint this widget on the canvas
+     * Paint this widget on the canvas.
      *
      * @param g        The Graphics object to draw this widget on
      * @param observer The asynchronous update interface that receives notifications about Image information as the
@@ -62,8 +62,7 @@ public class SpeedBar extends Widget {
     }
 
     /**
-     * Update the properties and values of this widget
-     * For SpeedBar, the height and color are updated based on the network table readings (the color is interpolated)
+     * Update the height according to readings from the robot code. Update the color based on that reading.
      *
      * @param key The key of the data that this widget belongs to, and of the record that will be read to find the
      *            updated value
@@ -73,6 +72,15 @@ public class SpeedBar extends Widget {
         barHeight = (int) ((nTable.getNumber(key, 0.0) / 100) * height);
         lerpedClr = ColorUtils.colorInterp(initClr, terminalClr,
                 (float) ((nTable.getNumber(key, 0.0) / 100)), interpDegree);
+    }
+
+    /**
+     * Accessor for bar height.
+     *
+     * @return The height of the speedbar, depending on the speed read
+     */
+    public int getBarHeight() {
+        return barHeight;
     }
 
 }

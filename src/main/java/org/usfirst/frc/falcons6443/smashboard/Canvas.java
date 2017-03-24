@@ -8,7 +8,7 @@ import java.awt.*;
 import java.util.ArrayList;
 
 /**
- * Panel where all components are drawn and data objects are stored
+ * Panel where all components are drawn and data objects are stored.
  *
  * @author Shivashriganesh Mahato
  */
@@ -19,7 +19,7 @@ public class Canvas extends JPanel {
     private ArrayList<StaticImage> staticImages;
 
     /**
-     * Construct the Canvas with empty lists of components
+     * Construct the Canvas with empty lists of components.
      */
     public Canvas() {
         datas = new ArrayList<>();
@@ -27,7 +27,7 @@ public class Canvas extends JPanel {
     }
 
     /**
-     * Get data from the list of data
+     * Get data from the list of data.
      *
      * @param key The key of the data to fetch
      * @return The data that is fetched
@@ -40,7 +40,7 @@ public class Canvas extends JPanel {
     }
 
     /**
-     * Get a widget from the list of data
+     * Get a widget from the list of data.
      *
      * @param key The key of the data that the widget belongs to
      * @return The widget that is fetched
@@ -50,7 +50,7 @@ public class Canvas extends JPanel {
     }
 
     /**
-     * Accessor for datas
+     * Accessor for datas.
      *
      * @return The canvas's list of data
      */
@@ -59,7 +59,7 @@ public class Canvas extends JPanel {
     }
 
     /**
-     * Add a new Data object to this canvas
+     * Add a new Data object to this canvas.
      *
      * @param data The data to add
      */
@@ -68,7 +68,7 @@ public class Canvas extends JPanel {
     }
 
     /**
-     * Add a new StaticImage object to this canvas
+     * Add a new StaticImage object to this canvas.
      *
      * @param image The static image to add
      */
