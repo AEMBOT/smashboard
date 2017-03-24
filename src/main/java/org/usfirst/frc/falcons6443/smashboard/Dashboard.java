@@ -8,7 +8,7 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * Defines the frame that a canvas is drawn on, holding the properties of an application itself
+ * Defines the frame that a canvas is drawn on, holding the properties of an application itself.
  *
  * @author Shivashriganesh Mahato
  */
@@ -22,7 +22,7 @@ public class Dashboard extends JFrame {
     private NetworkTable nTable;
 
     /**
-     * Construct the Dashboard with the properties of the application
+     * Construct the Dashboard with the properties of the application.
      *
      * @param ipAddress   The IP Address of the RoboRIO (where the wanted NetworkTables are stored) to connect to
      * @param nTableKey   The name of the NetworkTable to retrieve data from (if it doesn't exist already, it will be
@@ -51,7 +51,7 @@ public class Dashboard extends JFrame {
 
     /**
      * Initialize the application with a canvas and properties set based on the field defined in the construction of
-     * this object
+     * this object.
      */
     public void init() {
         canvas.setBackground(bgColor);
@@ -69,14 +69,14 @@ public class Dashboard extends JFrame {
     }
 
     /**
-     * Run the application
+     * Run the application.
      */
     public void run() {
         setVisible(true);
     }
 
     /**
-     * Update the data of the application
+     * Update the data of the application.
      */
     public void update() {
         canvas.repaint();
@@ -85,7 +85,7 @@ public class Dashboard extends JFrame {
     }
 
     /**
-     * Add a Static Image to the application's canvas
+     * Add a Static Image to the application's canvas.
      *
      * @param path   The path of the image in the resources root
      * @param x      The x coordinate of the image on the canvas
@@ -98,7 +98,7 @@ public class Dashboard extends JFrame {
     }
 
     /**
-     * Add data to the application that will be displayed on the canvas
+     * Add data to the application that will be displayed on the canvas.
      *
      * @param key    The unique identifier of the data; also the key of the network table record that will be used to
      *               display the widget
@@ -113,7 +113,7 @@ public class Dashboard extends JFrame {
     }
 
     /**
-     * Check if a data entity exists in the canvas's data list
+     * Check if a data entity exists in the canvas's data list.
      *
      * @param key The key of the data entity to look for
      * @return Does a data entity with the key @param key exist?
@@ -126,7 +126,7 @@ public class Dashboard extends JFrame {
     }
 
     /**
-     * Get data from the canvas
+     * Get data from the canvas.
      *
      * @param key The key of the data to fetch
      * @return The data that is fetched
@@ -136,7 +136,7 @@ public class Dashboard extends JFrame {
     }
 
     /**
-     * Get a widget from the canvas
+     * Get a widget from the canvas.
      *
      * @param key The key of the data that the widget belongs to
      * @return The widget that is fetched
@@ -146,7 +146,7 @@ public class Dashboard extends JFrame {
     }
 
     /**
-     * Accessor for canvas
+     * Accessor for canvas.
      *
      * @return This application's canvas
      */
@@ -155,7 +155,7 @@ public class Dashboard extends JFrame {
     }
 
     /**
-     * Accessor for title
+     * Accessor for title.
      *
      * @return This application's title
      */
@@ -165,7 +165,7 @@ public class Dashboard extends JFrame {
     }
 
     /**
-     * Mutator for title
+     * Mutator for title.
      *
      * @param title The new title
      */
@@ -175,7 +175,7 @@ public class Dashboard extends JFrame {
     }
 
     /**
-     * Accessor for BgColor
+     * Accessor for BgColor.
      *
      * @return This application's background color
      */
@@ -184,7 +184,7 @@ public class Dashboard extends JFrame {
     }
 
     /**
-     * Mutator for BgColor
+     * Mutator for BgColor.
      *
      * @param bgColor The new background color
      */
@@ -193,7 +193,7 @@ public class Dashboard extends JFrame {
     }
 
     /**
-     * Accessor for isResizable
+     * Accessor for isResizable.
      *
      * @return Is this application resizable?
      */
@@ -203,7 +203,7 @@ public class Dashboard extends JFrame {
     }
 
     /**
-     * Mutator for isResizable
+     * Mutator for isResizable.
      *
      * @param resizable Should this application be resizable?
      */
@@ -213,7 +213,7 @@ public class Dashboard extends JFrame {
     }
 
     /**
-     * Accessor for width
+     * Accessor for width.
      *
      * @return This application's width
      */
@@ -223,7 +223,7 @@ public class Dashboard extends JFrame {
     }
 
     /**
-     * Mutator for width
+     * Mutator for width.
      *
      * @param width The new width
      */
@@ -232,7 +232,7 @@ public class Dashboard extends JFrame {
     }
 
     /**
-     * Accessor for height
+     * Accessor for height.
      *
      * @return This application's height
      */
@@ -242,7 +242,7 @@ public class Dashboard extends JFrame {
     }
 
     /**
-     * Mutator for height
+     * Mutator for height.
      *
      * @param height The new height
      */
@@ -251,7 +251,7 @@ public class Dashboard extends JFrame {
     }
 
     /**
-     * Accessor for nTable
+     * Accessor for nTable.
      *
      * @return The network table that this application talks to
      */

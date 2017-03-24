@@ -8,7 +8,7 @@ import java.awt.geom.AffineTransform;
 import java.awt.image.ImageObserver;
 
 /**
- * A widget that displays the robot heading in a compass format
+ * A widget that displays the robot heading in a compass format.
  *
  * @author Shivashriganesh Mahato
  */
@@ -20,7 +20,7 @@ public class Compass extends Widget {
     private int angle;
 
     /**
-     * Construct the Compass with its properties
+     * Construct the Compass with its properties.
      *
      * @param nTable      The network table that the application is talking to
      * @param compassPath The path of the sprite of the compass in the resources root
@@ -29,6 +29,8 @@ public class Compass extends Widget {
      * @param width       The compass's width on the application's canvas
      * @param height      The compass's height on the application's canvas
      * @param angle       The compass's initial angle
+     * @param back        The sprite for the back of the compass
+     * @param fore        The sprite for the front of the compass
      */
     public Compass(NetworkTable nTable, String compassPath, int x, int y, int width, int height, int angle,
                    StaticImage back, StaticImage fore) {
@@ -40,7 +42,7 @@ public class Compass extends Widget {
     }
 
     /**
-     * Paint this widget on the canvas
+     * Paint this widget on the canvas.
      *
      * @param g        The Graphics object to draw this widget on
      * @param observer The asynchronous update interface that receives notifications about Image information as the
@@ -70,8 +72,7 @@ public class Compass extends Widget {
     }
 
     /**
-     * Update the properties and values of this widget
-     * For Compass, the angle is updated based on the network table reading for the key
+     * Update the angle of rotation of the robot based on NavX readings.
      *
      * @param key The key of the data that this widget belongs to, and of the record that will be read to find the
      *            updated value
@@ -79,6 +80,15 @@ public class Compass extends Widget {
     @Override
     public void update(String key) {
         angle = (int) nTable.getNumber(key, 0.0);
+    }
+
+    /**
+     * Accessor for angle.
+     *
+     * @return The rotational angle of the robot
+     */
+    public int getAngle() {
+        return angle;
     }
 
 }

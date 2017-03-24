@@ -3,7 +3,7 @@ package org.usfirst.frc.falcons6443.smashboard.utilities;
 import java.awt.*;
 
 /**
- * A set of global functions that can be used to manipulate color data
+ * A set of global functions that can be used to manipulate color data.
  *
  * @author Shivashriganesh Mahato
  */
@@ -36,7 +36,7 @@ public class ColorUtils {
     }
 
     /**
-     * Interpolate a color between 2 colors initClr and termClr
+     * Interpolate a color between 2 colors initClr and termClr.
      *
      * @param initClr The initial color of the interpolate
      * @param termClr The terminal color of the interpolate
@@ -54,7 +54,7 @@ public class ColorUtils {
     }
 
     /**
-     * Get the result of constraining a value from min to max
+     * Get the result of constraining a value from min to max.
      *
      * @param value The value to constrain
      * @param min   The minimum that the value can be

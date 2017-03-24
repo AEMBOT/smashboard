@@ -10,7 +10,7 @@ import java.awt.image.ImageObserver;
 import java.io.IOException;
 
 /**
- * Represents a visual display of data on the canvas
+ * Represents a visual display of data on the canvas.
  *
  * @author Shivashriganesh Mahato
  */
@@ -21,7 +21,7 @@ public abstract class Widget implements MouseListener {
     protected NetworkTable nTable;
 
     /**
-     * Construct the Widget with its properties
+     * Construct the Widget with its properties.
      *
      * @param nTable     The network table that the application is talking to
      * @param spritePath The path of the sprite of the widget in the resources root; If equal to "", the sprite will be
@@ -49,7 +49,7 @@ public abstract class Widget implements MouseListener {
     }
 
     /**
-     * Accessor for x
+     * Accessor for x.
      *
      * @return The static image's x coordinate
      */
@@ -58,7 +58,7 @@ public abstract class Widget implements MouseListener {
     }
 
     /**
-     * Mutator for x
+     * Mutator for x.
      *
      * @param x The new x position
      */
@@ -67,7 +67,7 @@ public abstract class Widget implements MouseListener {
     }
 
     /**
-     * Accessor for y
+     * Accessor for y.
      *
      * @return The static image's y coordinate
      */
@@ -76,7 +76,7 @@ public abstract class Widget implements MouseListener {
     }
 
     /**
-     * Mutator for y
+     * Mutator for y.
      *
      * @param y The new y position
      */
@@ -85,7 +85,7 @@ public abstract class Widget implements MouseListener {
     }
 
     /**
-     * Accessor for width
+     * Accessor for width.
      *
      * @return The static image's width
      */
@@ -94,7 +94,7 @@ public abstract class Widget implements MouseListener {
     }
 
     /**
-     * Mutator for width
+     * Mutator for width.
      *
      * @param width The new width
      */
@@ -103,7 +103,7 @@ public abstract class Widget implements MouseListener {
     }
 
     /**
-     * Accessor for height
+     * Accessor for height.
      *
      * @return The static image's height
      */
@@ -112,7 +112,7 @@ public abstract class Widget implements MouseListener {
     }
 
     /**
-     * Mutator for height
+     * Mutator for height.
      *
      * @param height The new height
      */
@@ -121,7 +121,7 @@ public abstract class Widget implements MouseListener {
     }
 
     /**
-     * Accessor for sprite
+     * Accessor for sprite.
      *
      * @return The widget's sprite
      */
@@ -130,7 +130,7 @@ public abstract class Widget implements MouseListener {
     }
 
     /**
-     * Paint this widget on the canvas
+     * Paint this widget on the canvas.
      *
      * @param g        The Graphics object to draw this widget on
      * @param observer The asynchronous update interface that receives notifications about Image information as the
@@ -139,7 +139,7 @@ public abstract class Widget implements MouseListener {
     public abstract void paint(Graphics g, ImageObserver observer);
 
     /**
-     * Update the properties and values of this widget
+     * Update the properties and values of this widget.
      *
      * @param key The key of the data that this widget belongs to, and of the record that will be read to find the
      *            updated value
@@ -147,18 +147,23 @@ public abstract class Widget implements MouseListener {
     public abstract void update(String key);
 
     @Override
-    public void mouseClicked(MouseEvent mouseEvent) {}
+    public void mouseClicked(MouseEvent mouseEvent) {
+    }
 
     @Override
-    public void mousePressed(MouseEvent mouseEvent) {}
+    public void mousePressed(MouseEvent mouseEvent) {
+    }
 
     @Override
-    public void mouseReleased(MouseEvent mouseEvent) {}
+    public void mouseReleased(MouseEvent mouseEvent) {
+    }
 
     @Override
-    public void mouseEntered(MouseEvent mouseEvent) {}
+    public void mouseEntered(MouseEvent mouseEvent) {
+    }
 
     @Override
-    public void mouseExited(MouseEvent mouseEvent) {}
+    public void mouseExited(MouseEvent mouseEvent) {
+    }
 
 }

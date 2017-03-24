@@ -6,7 +6,7 @@ import org.usfirst.frc.falcons6443.smashboard.widgets.*;
 import java.awt.*;
 
 /**
- * The main class that defines the Smashboard application properties and updates the components
+ * The main class that defines the Smashboard application properties and updates the components.
  *
  * @author Shivashriganesh Mahato
  */
@@ -24,7 +24,7 @@ public class Smashboard {
     private Dashboard smashboard;
 
     /**
-     * Construct the Smashboard with parameters to initialize the Dashboard
+     * Construct the Smashboard with parameters to initialize the Dashboard.
      *
      * @param ipAddress   The IP Address of the RoboRIO (where the wanted NetworkTables are stored) to connect to
      * @param nTableKey   The name of the NetworkTable to retrieve data from (if it doesn't exist already, it will be
@@ -41,7 +41,7 @@ public class Smashboard {
     }
 
     /**
-     * Initialize the Smashboard with the data values and images that should be displayed
+     * Initialize the Smashboard with the data values and images that should be displayed.
      */
     private void init() {
         // Add the data and images needed in the application to the smashboard
@@ -94,7 +94,7 @@ public class Smashboard {
     }
 
     /**
-     * Run a loop that will update the data
+     * Run a loop that will update the data.
      */
     private void loop() {
         // Update loop
@@ -110,7 +110,7 @@ public class Smashboard {
     }
 
     /**
-     * Run the application
+     * Run the application.
      */
     public static void main(String[] args) {
         // Initialize and run the main Smashboard instance

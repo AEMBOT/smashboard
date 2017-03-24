@@ -3,7 +3,7 @@ package org.usfirst.frc.falcons6443.smashboard;
 import org.usfirst.frc.falcons6443.smashboard.widgets.Widget;
 
 /**
- * Defines a data component that holds a key and value; the value should be updated based NetworkTable data
+ * Defines a data component that holds a key and value; the value should be updated based NetworkTable data.
  *
  * @author Shivashriganesh Mahato
  */
@@ -13,7 +13,7 @@ public class Data {
     private Widget widget;
 
     /**
-     * Construct this Data with the key and value
+     * Construct this Data with the key and value.
      *
      * @param key    The unique identifier of the data; also the key of the network table record that will be used to
      *               display the widget
@@ -26,7 +26,8 @@ public class Data {
     }
 
     /**
-     * Accessor for key
+     * Accessor for key.
+     *
      * @return The data's key
      */
     public String getKey() {
@@ -34,7 +35,8 @@ public class Data {
     }
 
     /**
-     * Accessor for widget
+     * Accessor for widget.
+     *
      * @return The data's widget
      */
     public Widget getWidget() {
@@ -43,7 +45,7 @@ public class Data {
 
     /**
      * Update the values of the data based on the update mechanisms of the widget; generally, the value will be updated
-     * based on values read from the network table that the application is connected to
+     * based on values read from the network table that the application is connected to.
      */
     public void update() {
         widget.update(key);

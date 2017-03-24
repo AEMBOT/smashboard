@@ -19,7 +19,7 @@ public class DriveDirection extends Widget {
     private boolean reversed;
 
     /**
-     * Construct the Widget with its properties
+     * Construct the Widget with its properties.
      *
      * @param nTable        The network table that the application is talking to
      * @param forwardSprite The sprite indicating a forward state
@@ -53,7 +53,7 @@ public class DriveDirection extends Widget {
     }
 
     /**
-     * Update the direction state (forward/reverse, with a reversed flag)
+     * Update the direction state (forward/reverse, with a reversed flag).
      *
      * @param key The key of the data that this widget belongs to, and of the record that will be read to find the
      */
@@ -61,4 +61,14 @@ public class DriveDirection extends Widget {
     public void update(String key) {
         reversed = nTable.getBoolean(key, false);
     }
+
+    /**
+     * Accessor for reversed.
+     *
+     * @return Is the robot in reversed mode?
+     */
+    public boolean isReversed() {
+        return reversed;
+    }
+    
 }
