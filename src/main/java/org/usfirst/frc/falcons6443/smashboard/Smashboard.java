@@ -87,6 +87,12 @@ public class Smashboard {
                         new StaticImage((Width / 2 + 130), 240, 80, 80, "/img/Reverse.png")
                 ));
 
+        smashboard.addData("autonomyTime",
+                new TimeThing(smashboard.getNTable(),
+                        new StaticImage((Width / 2 - 170), 150, 80, 80, "/img/Forward.png"),
+                        new StaticImage((Width / 2 - 170), 280, 80, 80, "/img/Reverse.png")
+                ));
+
         // Initialize the smashboard's properties
         smashboard.init();
         // Run the smashboard application
