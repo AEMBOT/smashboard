@@ -1,8 +1,9 @@
 package org.usfirst.frc.falcons6443.smashboard;
 
 import org.usfirst.frc.falcons6443.smashboard.utilities.StaticImage;
-import org.usfirst.frc.falcons6443.smashboard.widgets.*;
+import org.usfirst.frc.falcons6443.smashboard.widgets.Compass;
 import org.usfirst.frc.falcons6443.smashboard.widgets.Label;
+import org.usfirst.frc.falcons6443.smashboard.widgets.SpeedBar;
 
 import java.awt.*;
 
@@ -66,6 +67,14 @@ public class Smashboard {
         smashboard.addData("transmissionLevel",
                 new Label(smashboard.getNTable(), 200, 50, Color.WHITE, null, ""));
 
+        String newKey;
+        for (String key : smashboard.getNTable().getStringArray("keys", new String[] {"UNDEFINED"}))
+            if (smashboard.getData(key) == null) {
+                if (!key.contains(":::"))
+                    continue;
+                smashboard.addData(key,
+                        new Label(smashboard.getNTable(), ));
+            }
 //        for (String key : smashboard.getNTable().getKeys())
 //            smashboard.add(key,
 //                    new Label(smashboard.getNTable(), ))
