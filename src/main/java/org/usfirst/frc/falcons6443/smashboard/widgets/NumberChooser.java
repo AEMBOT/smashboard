@@ -8,7 +8,7 @@ import java.awt.event.MouseEvent;
 import java.awt.image.ImageObserver;
 
 /**
- * Created by higgp153 on 3/25/2017.
+ * @author Shivashriganesh Mahato
  */
 public class NumberChooser extends Widget {
     private StaticImage up, down;

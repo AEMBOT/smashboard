@@ -77,7 +77,8 @@ public class Smashboard {
         // Choosers
         smashboard.addData("autoChooser",
                 new CommandChooser(smashboard.getNTable(), "/img/DropdownBar.png", (Width / 2 - 78), 400,
-                        "TeleOp Command:", Color.WHITE, "/img/DropdownOption.png"
+                        "TeleOp Command:", Color.WHITE, "/img/DropdownOption.png",
+                        "/img/DropdownBarDown.png"
                 ));
 
         // Drive Direction Status

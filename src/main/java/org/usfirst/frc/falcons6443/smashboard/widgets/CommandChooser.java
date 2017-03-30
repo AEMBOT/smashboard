@@ -16,7 +16,7 @@ import java.io.IOException;
  */
 public class CommandChooser extends Widget {
 
-    private Image optionSprite;
+    private Image optionSprite, downBar;
     private String defaultTxt, label;
     private String[] options;
     private int selected;
@@ -36,10 +36,11 @@ public class CommandChooser extends Widget {
      * @param optionSpritePath The path of the background sprite for options
      */
     public CommandChooser(NetworkTable nTable, String spritePath, int x, int y,
-                          String label, Color labelClr, String optionSpritePath) {
+                          String label, Color labelClr, String optionSpritePath, String downBarSpritePath) {
         super(nTable, spritePath, x, y, 156, 36);
         try {
             optionSprite = ImageIO.read(this.getClass().getResource(optionSpritePath));
+            downBar = ImageIO.read(this.getClass().getResource(downBarSpritePath));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -49,6 +50,7 @@ public class CommandChooser extends Widget {
         defaultTxt = "";
         menuOpen = false;
         selected = -1;
+        setCursor(new Cursor(Cursor.HAND_CURSOR));
     }
 
     /**
@@ -61,14 +63,26 @@ public class CommandChooser extends Widget {
     public void paint(Graphics g, ImageObserver observer) {
         g.setColor(labelClr);
         g.drawString(label, x, y);
-        g.drawImage(sprite, x, y + 10, width, height, observer);
+        g.drawImage(menuOpen ? downBar : sprite, x, y + 10, width, height, observer);
         g.drawString(selected == -1 ? defaultTxt : options[selected], x + 50, y + 30);
-        if (menuOpen)
+        if (mousePosition.getX() > x && mousePosition.getX() < x + width && mousePosition.getY() > y + 10 &&
+                mousePosition.getY() < y + 10 + height) {
+            g.setColor(new Color(0, 0, 0, 50));
+            g.fillRect(x, y + 10, width, height);
+        }
+        if (menuOpen) {
             for (int op = 0; op < options.length; op++) {
                 g.drawImage(optionSprite, x, (y + 10 + height + (op * height)), width, height, observer);
-                g.setColor(Color.BLACK);
+                g.setColor(Color.WHITE);
                 g.drawString(options[op], x + 10, (y + 10 + height + (op * height)) + 20);
+                if (mousePosition.getX() > x && mousePosition.getX() < x + width &&
+                        mousePosition.getY() > (y + 10 + height + (op * height)) &&
+                        mousePosition.getY() < (y + 10 + height + (op * height)) + height) {
+                    g.setColor(new Color(0, 0, 0, 50));
+                    g.fillRect(x, (y + 10 + height + (op * height)), width, height);
+                }
             }
+        }
     }
 
     /**
@@ -106,7 +120,6 @@ public class CommandChooser extends Widget {
         if (menuOpen && !(mouseX >= x && mouseX <= (x + width) && mouseY >= (y + 10) &&
                 mouseY <= (y + height + 10 + (height * options.length))))
             menuOpen = false;
-
     }
 
     /**
