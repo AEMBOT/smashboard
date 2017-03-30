@@ -10,7 +10,7 @@ import java.awt.image.ImageObserver;
 /**
  * Created by higgp153 on 3/25/2017.
  */
-public class TimeThing extends Widget {
+public class NumberChooser extends Widget {
     private StaticImage up, down;
     private int time;
 
@@ -19,7 +19,7 @@ public class TimeThing extends Widget {
      *
      * @param nTable     The network table that the application is talking to
      */
-    public TimeThing(NetworkTable nTable, StaticImage up, StaticImage down) {
+    public NumberChooser(NetworkTable nTable, StaticImage up, StaticImage down) {
         super(nTable, "", 0, 0, 0, 0);
         this.up = up;
         this.down = down;

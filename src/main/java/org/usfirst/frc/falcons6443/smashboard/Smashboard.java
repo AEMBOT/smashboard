@@ -75,7 +75,7 @@ public class Smashboard {
                 ));
 
         // Choosers
-        smashboard.addData("teleopChooser",
+        smashboard.addData("autoChooser",
                 new CommandChooser(smashboard.getNTable(), "/img/DropdownBar.png", (Width / 2 - 78), 400,
                         "TeleOp Command:", Color.WHITE, "/img/DropdownOption.png"
                 ));
@@ -87,8 +87,8 @@ public class Smashboard {
                         new StaticImage((Width / 2 + 130), 240, 80, 80, "/img/Reverse.png")
                 ));
 
-        smashboard.addData("autonomyTime",
-                new TimeThing(smashboard.getNTable(),
+        smashboard.addData("autonomyDelay",
+                new NumberChooser(smashboard.getNTable(),
                         new StaticImage((Width / 2 - 170), 150, 80, 80, "/img/Forward.png"),
                         new StaticImage((Width / 2 - 170), 280, 80, 80, "/img/Reverse.png")
                 ));
