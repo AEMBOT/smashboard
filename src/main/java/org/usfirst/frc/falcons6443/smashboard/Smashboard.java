@@ -77,7 +77,7 @@ public class Smashboard {
         // Choosers
         smashboard.addData("autoChooser",
                 new CommandChooser(smashboard.getNTable(), "/img/DropdownBar.png", (Width / 2 - 78), 400,
-                        "TeleOp Command:", Color.WHITE, "/img/DropdownOption.png",
+                        "Autonomous Command:", Color.WHITE, "/img/DropdownOption.png",
                         "/img/DropdownBarDown.png"
                 ));
 
@@ -89,9 +89,10 @@ public class Smashboard {
                 ));
 
         smashboard.addData("autonomyDelay",
-                new NumberChooser(smashboard.getNTable(),
-                        new StaticImage((Width / 2 - 170), 150, 80, 80, "/img/Forward.png"),
-                        new StaticImage((Width / 2 - 170), 280, 80, 80, "/img/Reverse.png")
+                new NumberChooser(smashboard.getNTable(), "Auto Delay",
+                        "*For auto command MoveByTime",
+                        new StaticImage((Width / 2 - 230), 170, 110, 63, "/img/NumChooseUp.png"),
+                        new StaticImage((Width / 2 - 230), 300, 110, 63, "/img/NumChooseDown.png")
                 ));
 
         // Initialize the smashboard's properties
