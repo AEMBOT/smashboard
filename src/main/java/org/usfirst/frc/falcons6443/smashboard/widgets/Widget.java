@@ -3,9 +3,11 @@ package org.usfirst.frc.falcons6443.smashboard.widgets;
 import edu.wpi.first.wpilibj.networktables.NetworkTable;
 
 import javax.imageio.ImageIO;
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 import java.awt.image.ImageObserver;
 import java.io.IOException;
 
@@ -14,11 +16,12 @@ import java.io.IOException;
  *
  * @author Shivashriganesh Mahato
  */
-public abstract class Widget implements MouseListener {
+public abstract class Widget extends JComponent implements MouseListener, MouseMotionListener {
 
     protected Image sprite;
     protected int x, y, width, height;
     protected NetworkTable nTable;
+    protected Point mousePosition;
 
     /**
      * Construct the Widget with its properties.
@@ -46,6 +49,7 @@ public abstract class Widget implements MouseListener {
         this.y = y;
         this.width = width;
         this.height = height;
+        mousePosition = new Point();
     }
 
     /**
@@ -166,4 +170,12 @@ public abstract class Widget implements MouseListener {
     public void mouseExited(MouseEvent mouseEvent) {
     }
 
+    @Override
+    public void mouseDragged(MouseEvent mouseEvent) {
+    }
+
+    @Override
+    public void mouseMoved(MouseEvent mouseEvent) {
+        mousePosition = mouseEvent.getPoint();
+    }
 }
