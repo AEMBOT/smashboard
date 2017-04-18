@@ -4,8 +4,10 @@ import edu.wpi.first.wpilibj.networktables.NetworkTable;
 import org.usfirst.frc.falcons6443.smashboard.utilities.StaticImage;
 import org.usfirst.frc.falcons6443.smashboard.widgets.Widget;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
 
 /**
  * Defines the frame that a canvas is drawn on, holding the properties of an application itself.
@@ -20,6 +22,7 @@ public class Dashboard extends JFrame {
     private int width, height;
     private Canvas canvas;
     private NetworkTable nTable;
+    private Image appIcon;
 
     /**
      * Construct the Dashboard with the properties of the application.
@@ -47,6 +50,11 @@ public class Dashboard extends JFrame {
         this.isResizable = isResizable;
         this.width = width;
         this.height = height;
+        try {
+            appIcon = ImageIO.read(this.getClass().getResource("/img/Icon.png"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -64,6 +72,7 @@ public class Dashboard extends JFrame {
         });
 
         setTitle(title);
+        setIconImage(appIcon);
         getContentPane().setBackground(bgColor);
         setResizable(isResizable);
         setSize(width, height);
