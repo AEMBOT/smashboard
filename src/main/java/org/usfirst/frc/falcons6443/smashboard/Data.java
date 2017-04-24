@@ -5,7 +5,7 @@ import org.usfirst.frc.falcons6443.smashboard.widgets.Widget;
 /**
  * Defines a data component that holds a key and value; the value should be updated based NetworkTable data.
  *
- * @author Shivashriganesh Mahato
+ * @author Patrick Higgins
  */
 public class Data {
 

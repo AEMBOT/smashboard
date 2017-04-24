@@ -8,7 +8,7 @@ import java.io.IOException;
 /**
  * A constant image that is drawn on the canvas.
  *
- * @author Shivashriganesh Mahato
+ * @author Patrick Higgins
  */
 public class StaticImage {
 

@@ -11,7 +11,7 @@ import java.awt.image.ImageObserver;
  * and the appropriate one is covered to represent inactivity of the state (reverse covered if forward, forward covered
  * if reversed).
  *
- * @author Shivashriganesh Mahato
+ * @author Patrick Higgins
  */
 public class DriveDirection extends Widget {
 

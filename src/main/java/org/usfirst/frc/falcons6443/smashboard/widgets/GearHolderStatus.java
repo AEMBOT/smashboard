@@ -10,7 +10,7 @@ import java.io.IOException;
 /**
  * A widget that displays the gear holder status (open/closed).
  *
- * @author Shivashriganesh Mahato
+ * @author Patrick Higgins
  */
 public class GearHolderStatus extends Widget {
 

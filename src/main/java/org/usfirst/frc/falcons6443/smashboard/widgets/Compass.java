@@ -10,7 +10,7 @@ import java.awt.image.ImageObserver;
 /**
  * A widget that displays the robot heading in a compass format.
  *
- * @author Shivashriganesh Mahato
+ * @author Patrick Higgins
  */
 public class Compass extends Widget {
 

@@ -14,7 +14,7 @@ import java.io.IOException;
 /**
  * Represents a visual display of data on the canvas.
  *
- * @author Shivashriganesh Mahato
+ * @author Patrick Higgins
  */
 public abstract class Widget extends JComponent implements MouseListener, MouseMotionListener {
 

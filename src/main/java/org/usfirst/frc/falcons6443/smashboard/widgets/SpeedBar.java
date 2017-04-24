@@ -10,7 +10,7 @@ import java.awt.image.ImageObserver;
  * A widget that displays the readings from the gamepad (the control read is based on the driving command that is setup)
  * on a scale. This aides the driver with an easy display for the speed of the robot on either side.
  *
- * @author Shivashriganesh Mahato
+ * @author Patrick Higgins
  */
 public class SpeedBar extends Widget {
 
