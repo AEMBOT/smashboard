@@ -12,7 +12,7 @@ import java.io.IOException;
  * A widget that allows simple command choosing. A dropdown displays the different options, and selecting one updates
  * the command to be executed in the robot code accordingly.
  *
- * @author Shivashriganesh Mahato
+ * @author Patrick Higgins
  */
 public class CommandChooser extends Widget {
 

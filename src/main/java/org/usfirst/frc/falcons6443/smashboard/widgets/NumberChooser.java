@@ -8,7 +8,7 @@ import java.awt.event.MouseEvent;
 import java.awt.image.ImageObserver;
 
 /**
- * @author Shivashriganesh Mahato
+ * @author Patrick Higgins
  */
 public class NumberChooser extends Widget {
 

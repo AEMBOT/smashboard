@@ -10,7 +10,7 @@ import java.util.ArrayList;
 /**
  * Panel where all components are drawn and data objects are stored.
  *
- * @author Shivashriganesh Mahato
+ * @author Patrick Higgins
  */
 public class Canvas extends JPanel {
 

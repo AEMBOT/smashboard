@@ -5,7 +5,7 @@ import java.awt.*;
 /**
  * A set of global functions that can be used to manipulate color data.
  *
- * @author Shivashriganesh Mahato
+ * @author Patrick Higgins
  */
 public class ColorUtils {
 

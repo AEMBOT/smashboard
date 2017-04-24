@@ -12,7 +12,7 @@ import java.io.IOException;
 /**
  * Defines the frame that a canvas is drawn on, holding the properties of an application itself.
  *
- * @author Shivashriganesh Mahato
+ * @author Patrick Higgins
  */
 public class Dashboard extends JFrame {
 

@@ -8,7 +8,7 @@ import java.awt.image.ImageObserver;
 /**
  * A widget that displays simple text.
  *
- * @author Shivashriganesh Mahato
+ * @author Patrick Higgins
  */
 public class Label extends Widget {
 

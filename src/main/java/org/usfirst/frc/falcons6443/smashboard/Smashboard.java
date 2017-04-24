@@ -8,7 +8,7 @@ import java.awt.*;
 /**
  * The main class that defines the Smashboard application properties and updates the components.
  *
- * @author Shivashriganesh Mahato
+ * @author Patrick Higgins
  */
 public class Smashboard {
 
